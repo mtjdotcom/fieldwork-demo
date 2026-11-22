@@ -1,1 +1,41 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Discovery inbox · Fieldwork</title><link rel="stylesheet" href="fieldwork.css"><link rel="stylesheet" href="demo.css"><script defer src="demo.js"></script></head><body><a class="skip" href="#main">Skip to inbox</a><aside><a class="logo" href="./">◩ Fieldwork</a><nav aria-label="Workspace"><p class="eyebrow">Collection</p><button data-view="inbox">Discovery inbox</button><button data-view="following">Following</button><button data-view="archive">Archive</button><p class="eyebrow">Research</p><a href="artists.html">Artist directory</a><a href="gallery-programmes-2018-2020.html">Gallery audit</a><a href="https://github.com/mtjdotcom/fieldwork-demo/issues/new">Give feedback ↗</a></nav></aside><main id="main"><p class="eyebrow">Public preview</p><h1>Discovery inbox</h1><p id="intro"></p><p class="local">Your choices are saved in this browser.</p><div role="status" id="notice"></div><section class="samples" aria-label="Artists"><article class="sample panel" data-id="oscar-murillo"><a class="art" href="https://www.carlosishikawa.com/artists/oscarmurillo/"><img src="./images/oscar-murillo.jpg" alt="Oscar Murillo, Capsule 07. Installation view at Haus der Kunst, Munich, 2017."></a><div class="info"><p class="eyebrow">Painting &amp; installation</p><h2>Oscar Murillo</h2><p class="from">Surfaced by <a href="https://www.carlosishikawa.com/">Carlos/Ishikawa</a></p><p class="caption">Oscar Murillo, Capsule 07. Installation view at Haus der Kunst, Munich, 2017.</p><details><summary>Credit and source</summary><small>Photograph by Maximilian Geuter, via Carlos/Ishikawa. <a href="https://www.carlosishikawa.com/artists/oscarmurillo/">View source</a></small></details><div class="choices"></div></div></article><article class="sample panel" data-id="issy-wood"><a class="art" href="https://goldsmithscca.art/exhibition/issy-wood/"><img src="./images/issy-wood.jpg" alt="Issy Wood, All The Rage. Installation view at Goldsmiths CCA, London, 2019."></a><div class="info"><p class="eyebrow">Painting</p><h2>Issy Wood</h2><p class="from">Surfaced by <a href="https://www.carlosishikawa.com/">Carlos/Ishikawa</a></p><p class="caption">Issy Wood, All The Rage. Installation view at Goldsmiths CCA, London, 2019.</p><details><summary>Credit and source</summary><small>Photograph © Mark Blower. Courtesy of the artist and Carlos/Ishikawa, London. <a href="https://goldsmithscca.art/exhibition/issy-wood/">View source</a></small></details><div class="choices"></div></div></article><article class="sample panel" data-id="jesse-darling"><a class="art" href="https://arcadiamissa.com/the-great-near/"><img src="./images/jesse-darling.jpg" alt="Jesse Darling, The Great Near. Installation view at Arcadia Missa, London, 2016."></a><div class="info"><p class="eyebrow">Sculpture &amp; installation</p><h2>Jesse Darling</h2><p class="from">Surfaced by <a href="https://arcadiamissa.com/">Arcadia Missa</a></p><p class="caption">Jesse Darling, The Great Near. Installation view at Arcadia Missa, London, 2016.</p><details><summary>Credit and source</summary><small>Image from the Arcadia Missa exhibition archive. <a href="https://arcadiamissa.com/the-great-near/">View source</a></small></details><div class="choices"></div></div></article><article class="sample panel" data-id="nnena-kalu"><a class="art" href="https://actionspace.org/exhibition/nnena-kalu-nnena-kalu-at-arcadia-missa/"><img src="./images/nnena-kalu.jpg" alt="Nnena Kalu. Installation view at Arcadia Missa, London, 2024."></a><div class="info"><p class="eyebrow">Sculpture &amp; drawing</p><h2>Nnena Kalu</h2><p class="from">Surfaced by <a href="https://arcadiamissa.com/">Arcadia Missa</a></p><p class="caption">Nnena Kalu. Installation view at Arcadia Missa, London, 2024.</p><details><summary>Credit and source</summary><small>Photograph by Tom Carter. Courtesy of the artist, ActionSpace and Arcadia Missa, London. <a href="https://actionspace.org/exhibition/nnena-kalu-nnena-kalu-at-arcadia-missa/">View source</a></small></details><div class="choices"></div></div></article><article class="sample panel" data-id="nat-faulkner"><a class="art" href="https://camdenartcentre.org/whats-on/nat-faulkner"><img src="./images/nat-faulkner.jpg" alt="Nat Faulkner, Strong water. Installation view at Camden Art Centre, London, 2026."></a><div class="info"><p class="eyebrow">Photography &amp; sculpture</p><h2>Nat Faulkner</h2><p class="from">Surfaced by <a href="https://www.brunettecoleman.com/">Brunette Coleman</a></p><p class="caption">Nat Faulkner, Strong water. Installation view at Camden Art Centre, London, 2026.</p><details><summary>Credit and source</summary><small>Photograph by Rob Harris, via Camden Art Centre. <a href="https://camdenartcentre.org/whats-on/nat-faulkner">View source</a></small></details><div class="choices"></div></div></article></section><p id="empty" hidden></p></main></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f7f7f2" />
+    <title>Fieldwork — Collector workspace</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./worksheet.css" />
+    <link rel="stylesheet" href="./profile.css" />
+    <link rel="stylesheet" href="./discoveries.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23bf5336'/%3E%3Cpath d='m8 29 8-20h7l-8 20zm10 0 8-20h6l-8 20z' fill='white'/%3E%3C/svg%3E"
+    />
+    <script defer src="./demo-projection.js"></script>
+    <script defer src="./demo-api.js"></script>
+    <script defer src="./worksheet.js"></script>
+    <script defer src="./profile.js"></script>
+    <script defer src="./gallery-tiers.js"></script>
+    <script defer src="./network.js"></script>
+    <script defer src="./discovery-order.js"></script>
+    <script defer src="./discovery-views.js"></script>
+    <script defer src="./discoveries.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div id="app"><main class="loading">Opening Fieldwork…</main></div>
+    <dialog id="dialog">
+      <header>
+        <h2></h2>
+        <button class="icon-btn" aria-label="Close dialog" id="dialog-close">
+          ×
+        </button>
+      </header>
+      <div id="dialog-body"></div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

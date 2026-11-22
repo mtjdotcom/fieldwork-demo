@@ -1,0 +1,2288 @@
+{
+  "galleries": [
+    {
+      "id": "carlos-ishikawa",
+      "name": "Carlos/Ishikawa",
+      "area": "Whitechapel",
+      "note": "Oscar Murillo presented work here in 2011. Issy Wood held a solo show here in 2017.",
+      "url": "https://www.carlosishikawa.com/",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": true,
+          "eligibleCount": 1,
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/",
+          "artists": [
+            {
+              "name": "Rose Salane",
+              "firstDate": "2018-03-01",
+              "sourceUrl": "https://www.carlosishikawa.com/exhibitions/all-these-events-are-true-but-none-of-them-happened/",
+              "artistUrl": "https://www.carlosishikawa.com/artists/rosesalane/",
+              "firstPublicYear": 2015,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2019-04-23",
+                  "organization": "MIT List Visual Arts Center",
+                  "sourceUrl": "https://listart.mit.edu/exhibitions/list-projects-rose-salane"
+                },
+                {
+                  "kind": "museum_show",
+                  "date": "2022-04-06",
+                  "organization": "Whitney Museum of American Art",
+                  "sourceUrl": "https://whitney.org/exhibitions/2022-biennial"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [
+          2018,
+          2019,
+          2020
+        ],
+        "tier": "Unrated",
+        "reason": "1 eligible entrants across the three years. At least 10 are required.",
+        "entrants": 1,
+        "successes": 1,
+        "resolved": 1,
+        "unresolved": 0,
+        "coverage": 1.0,
+        "rate": 1.0,
+        "lower": 0.20654931437723753,
+        "upper": 1.0,
+        "institutional": 1,
+        "graduations": 0,
+        "successYears": [
+          2018
+        ],
+        "rowResults": [
+          {
+            "year": 2018,
+            "name": "Rose Salane",
+            "firstDate": "2018-03-01",
+            "artistUrl": "https://www.carlosishikawa.com/artists/rosesalane/",
+            "windowEnd": "2023-03-01",
+            "status": "success",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "All three presenting programmes were reconciled with their offsite and guest credits. Rose Salane was the sole eligible entrant in 2018–20 and subsequently exhibited at MIT and the Whitney. One artist is below the ten-artist tier minimum."
+      }
+    },
+    {
+      "id": "arcadia-missa",
+      "name": "Arcadia Missa",
+      "area": "Mayfair",
+      "note": "Jesse Darling and Nnena Kalu exhibited here before winning the Turner Prize.",
+      "url": "https://arcadiamissa.com/",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://arcadiamissa.com/category/exhibition/",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://arcadiamissa.com/category/exhibition/",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://arcadiamissa.com/category/exhibition/",
+          "artists": [
+            {
+              "name": "Rene Matić",
+              "firstDate": "2020-04-23",
+              "sourceUrl": "https://arcadiamissa.com/we-give-a-lead-to-britain/",
+              "artistUrl": "https://chapter-ny.com/artists/rene-mati%C4%87/cv/",
+              "firstPublicYear": 2017,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2020-09-30",
+                  "organization": "Schlossmuseum Linz",
+                  "sourceUrl": "https://www.ooekultur.at/detail/friends-and-friends-of-friends-kuenstlergemeinschaften-im-zeitalter-der-sozialen-medien"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2020,
+            "name": "Rene Matić",
+            "firstDate": "2020-04-23",
+            "artistUrl": "https://chapter-ny.com/artists/rene-mati%C4%87/cv/",
+            "windowEnd": "2025-04-23",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The London index omits at least one presenting-gallery exhibition in New York. Each group show and exchange needs named participant checks, and a museum outcome alone does not establish an eligible debut."
+      }
+    },
+    {
+      "id": "emalin",
+      "name": "Emalin",
+      "area": "Shoreditch",
+      "note": "The gallery shows at the Clerk’s House in Shoreditch and at Helmet Row. Its programme includes Alvaro Barrington.",
+      "url": "https://emalin.co.uk/contact",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://emalin.co.uk/exhibitions",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": true,
+          "eligibleCount": 2,
+          "sourceUrl": "https://emalin.co.uk/exhibitions",
+          "artists": [
+            {
+              "name": "Tt X AB",
+              "firstDate": "2019-09-07",
+              "sourceUrl": "https://emalin.co.uk/exhibitions/tall-boys-a-double-shot-espresso",
+              "artistUrl": "https://emalin.co.uk/artists/tt-x-ab",
+              "firstPublicYear": 2019,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": []
+            },
+            {
+              "name": "Kris Lemsalu Malone & Kyp Malone Lemsalu",
+              "firstDate": "2019-09-07",
+              "sourceUrl": "https://emalin.co.uk/media/pages/exhibitions/tall-boys-a-double-shot-espresso/c3af512aba-1637410691/tt-x-ab-press-release-list-of-works.pdf",
+              "artistUrl": "https://www.kai.center/en/exhibition/kris-lemsalu-malone-kyp-malone-lemsalu-love-song-sing-along-once-again-with-feeling",
+              "firstPublicYear": 2017,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2020-02-29",
+                  "organization": "KW Institute for Contemporary Art",
+                  "sourceUrl": "https://www.kw-berlin.de/en/exhibitions/kris-lemsalu-kyp-malone"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://emalin.co.uk/exhibitions",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [
+          2018,
+          2019,
+          2020
+        ],
+        "tier": "Unrated",
+        "reason": "2 eligible entrants across the three years. At least 10 are required.",
+        "entrants": 2,
+        "successes": 1,
+        "resolved": 1,
+        "unresolved": 1,
+        "coverage": 0.5,
+        "rate": 0.5,
+        "lower": 0.09453120573423075,
+        "upper": 1.0,
+        "institutional": 1,
+        "graduations": 0,
+        "successYears": [
+          2019
+        ],
+        "rowResults": [
+          {
+            "year": 2019,
+            "name": "Tt X AB",
+            "firstDate": "2019-09-07",
+            "artistUrl": "https://emalin.co.uk/artists/tt-x-ab",
+            "windowEnd": "2024-09-07",
+            "status": "unresolved",
+            "institutional": false,
+            "graduation": false
+          },
+          {
+            "year": 2019,
+            "name": "Kris Lemsalu Malone & Kyp Malone Lemsalu",
+            "firstDate": "2019-09-07",
+            "artistUrl": "https://www.kai.center/en/exhibition/kris-lemsalu-malone-kyp-malone-lemsalu-love-song-sing-along-once-again-with-feeling",
+            "windowEnd": "2024-09-07",
+            "status": "success",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The three programme censuses identify zero eligible entrants in 2018, two in 2019 and zero in 2020. Both entrants were collaborative practices. One has a verified museum exhibition in the five-year window and the other has unresolved follow-up. Two entrants fall below the minimum of ten."
+      }
+    },
+    {
+      "id": "soft-opening",
+      "name": "Soft Opening",
+      "area": "Bethnal Green",
+      "note": "Its London programme includes Maren Karlson, Rhea Dillon and Tenant of Culture.",
+      "url": "https://softopening.london/exhibitions",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.softopening.london/exhibitions",
+          "artists": [
+            {
+              "name": "Dozie Kanu",
+              "firstDate": "2018-09-27",
+              "sourceUrl": "https://www.softopening.london/exhibitions/humane-alternatives",
+              "artistUrl": "https://www.doziekanu.com/",
+              "firstPublicYear": 2016,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2019-11-15",
+                  "organization": "The Studio Museum in Harlem",
+                  "sourceUrl": "https://www.studiomuseum.org/exhibitions/dozie-kanu-function"
+                },
+                {
+                  "kind": "museum_show",
+                  "date": "2022-08-20",
+                  "organization": "San Francisco Museum of Modern Art",
+                  "sourceUrl": "https://www.sfmoma.org/exhibition/conversation-pieces/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.softopening.london/exhibitions",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.softopening.london/exhibitions",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2018,
+            "name": "Dozie Kanu",
+            "firstDate": "2018-09-27",
+            "artistUrl": "https://www.doziekanu.com/",
+            "windowEnd": "2023-09-27",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The exhibition archive lists 36 openings across both London spaces. Four group checklists add artists missing from the archive headlines. Documented institutional trajectories exist, while several early career histories and repeat appearances still need reconciliation."
+      }
+    },
+    {
+      "id": "ginny-on-frederick",
+      "name": "Ginny on Frederick",
+      "area": "Smithfield",
+      "note": "Its Frieze presentation with Jack O’Brien led to a Camden Art Centre commission.",
+      "url": "https://ginnyonfrederick.com/",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://ginnyonfrederick.com/archive/",
+          "artists": [
+            {
+              "name": "Joe W. Speier",
+              "firstDate": "2018-04-24",
+              "sourceUrl": "https://ginnyonfrederick.com/archive/",
+              "artistUrl": "https://assets.ctfassets.net/74sr85saq67e/27XzJi5ICAE2l900Q0ioC2/9f369193cfac064aa76c3eb2cfe08619/JoeSpeier_CV_2023.pdf",
+              "firstPublicYear": 2017,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": []
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://ginnyonfrederick.com/archive/",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://ginnyonfrederick.com/archive/",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2018,
+            "name": "Joe W. Speier",
+            "firstDate": "2018-04-24",
+            "artistUrl": "https://assets.ctfassets.net/74sr85saq67e/27XzJi5ICAE2l900Q0ioC2/9f369193cfac064aa76c3eb2cfe08619/JoeSpeier_CV_2023.pdf",
+            "windowEnd": "2023-04-24",
+            "status": "incomplete",
+            "institutional": false,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The gallery preserves the archive of Ginny’s itinerant programme. It includes exhibitions in Wales, London, Leipzig and Italy before the later permanent London space. Several artist baselines and the status of guest-led projects remain unresolved."
+      }
+    },
+    {
+      "id": "brunette-coleman",
+      "name": "Brunette Coleman",
+      "area": "Bloomsbury",
+      "note": "Presented Nat Faulkner at Frieze London, where he won the 2024 Camden Art Centre Emerging Artist Prize.",
+      "url": "https://www.brunettecoleman.com/",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.brunettecoleman.com/exhibitions/past",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.brunettecoleman.com/exhibitions/past",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.brunettecoleman.com/exhibitions/past",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [
+          2018,
+          2019,
+          2020
+        ],
+        "tier": "Unrated",
+        "reason": "0 eligible entrants across the three years. At least 10 are required.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": []
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "Brunette Coleman was founded in 2023. Its archive includes an off-site exhibition that February. All three audited years predate the programme and contain zero eligible entrants."
+      }
+    },
+    {
+      "id": "rose-easton",
+      "name": "Rose Easton",
+      "area": "Bethnal Green",
+      "note": "Opened in 2021. Its artist roster includes Tasneem Sarkez, Eva Gold and Jan Gatewood.",
+      "url": "https://www.roseeaston.com/information",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.roseeaston.com/information",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.roseeaston.com/information",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.roseeaston.com/information",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [
+          2018,
+          2019,
+          2020
+        ],
+        "tier": "Unrated",
+        "reason": "0 eligible entrants across the three years. At least 10 are required.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": []
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "Rose Easton dates its launch, including its earlier name Moarain House, to October 2021. All three years have a verified count of zero eligible entrants. A rate requires a cohort of artists."
+      }
+    },
+    {
+      "id": "oof-gallery",
+      "name": "OOF Gallery",
+      "area": "Tottenham",
+      "note": "Its football-focused exhibition programme has a permanent home at Warmington House beside Tottenham Hotspur Stadium.",
+      "url": "https://oofgallery.com/about",
+      "city": "London",
+      "country": "United Kingdom",
+      "visitable": true,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://oofgallery.com/past-event/collective-failure",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://oofgallery.com/past-events/ultra-art-for-the-womens-world-cup",
+          "artists": [
+            {
+              "name": "Lydia Blakeley",
+              "firstDate": "2019-06-14",
+              "sourceUrl": "https://oofgallery.com/past-events/ultra-art-for-the-womens-world-cup",
+              "artistUrl": "https://static1.squarespace.com/static/5e5bbfd426341f1a101bb1fa/t/5eeb474cca509d4e36b29399/1592477516905/Lydia%2BBlakeley%2BCV%2BJune%2B2020.pdf",
+              "firstPublicYear": 2015,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2020-09-01",
+                  "organization": "Hayward Gallery, Southbank Centre",
+                  "sourceUrl": "https://www.southbankcentre.co.uk/magazine/5-things-to-know-about-everyday-heroes/"
+                },
+                {
+                  "kind": "museum_show",
+                  "date": "2021-09-09",
+                  "organization": "Hayward Gallery, Southbank Centre",
+                  "sourceUrl": "https://bynder.southbankcentre.co.uk/m/3658a336598336f4/original/Mixing-It-Up_-Painting-Today-Gerhard-Richter_-Drawings-1999-2021-Press-Release-web.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://oofgallery.com/past-events/caroline-coon-in-the-arena",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2019,
+            "name": "Lydia Blakeley",
+            "firstDate": "2019-06-14",
+            "artistUrl": "https://static1.squarespace.com/static/5e5bbfd426341f1a101bb1fa/t/5eeb474cca509d4e36b29399/1592477516905/Lydia%2BBlakeley%2BCV%2BJune%2B2020.pdf",
+            "windowEnd": "2024-06-14",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "OOF presented exhibitions across London before its permanent space opened in 2021. Four guest-venue projects are documented here. Lydia Blakeley went on to exhibit at the Hayward Gallery. A complete annual guest programme and several early artist histories are still missing."
+      }
+    },
+    {
+      "id": "47-canal",
+      "name": "47 Canal",
+      "city": "New York",
+      "country": "United States",
+      "area": "Chelsea",
+      "note": "The gallery’s roster includes Ajay Kurian, Danielle Dean and Anicka Yi.",
+      "url": "https://47canal.us/info",
+      "visitable": false,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://47canal.us/archive",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://47canal.us/archive",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://47canal.us/archive",
+          "artists": [
+            {
+              "name": "Emmanuel Louisnord Desir",
+              "firstDate": "2020-07-03",
+              "sourceUrl": "https://47canal.us/exhibitions/emmanuel-louisnord-desir-swing-low-sweet-chariot",
+              "artistUrl": "https://47canal.us/media/pages/artists/emmanuel-louisnord-desir/54302b2d9b-1765389929/ed_cv.pdf",
+              "firstPublicYear": 2020,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2023-10-01",
+                  "organization": "Hammer Museum",
+                  "sourceUrl": "https://hammer.ucla.edu/exhibitions/2023/made-la-2023-acts-living"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2020,
+            "name": "Emmanuel Louisnord Desir",
+            "firstDate": "2020-07-03",
+            "artistUrl": "https://47canal.us/media/pages/artists/emmanuel-louisnord-desir/54302b2d9b-1765389929/ed_cv.pdf",
+            "windowEnd": "2025-07-03",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "47 Canal showed Emmanuel Louisnord Desir in 2020 before his Hammer Museum exhibition in 2023. Earlier gallery credits and professional debuts remain open for other artists in the exhibitions and exchanges, including José López Serra."
+      }
+    },
+    {
+      "id": "kraupa-tuskany-zeidler",
+      "name": "Kraupa-Tuskany Zeidler",
+      "city": "Berlin",
+      "country": "Germany",
+      "area": "Kreuzberg",
+      "note": "The Berlin programme includes Anna Uddenberg’s solo shows in 2017 and 2021.",
+      "url": "https://www.k-t-z.com/contact/",
+      "visitable": false,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.k-t-z.com/exhibitions/",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.k-t-z.com/exhibitions/",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": true,
+          "eligibleCount": 0,
+          "sourceUrl": "https://www.k-t-z.com/exhibitions/",
+          "artists": []
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [
+          2020
+        ],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": []
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The Berlin archive lists twelve exhibitions, with two additional co-organised programmes in Munich and at Wilhelmhallen. The 2020 census yields zero entrants. Three baseline cases remain open in 2018 and one in 2019. Even if all four qualified, the documented programme would fall below the ten-entrant minimum."
+      }
+    },
+    {
+      "id": "blank-projects",
+      "name": "blank projects",
+      "city": "Cape Town",
+      "country": "South Africa",
+      "area": "Foreshore",
+      "note": "Founded as a project space in 2005, the gallery became commercial in 2012 and shows artists from the region and its diaspora.",
+      "url": "https://blankprojects.com/Gallery",
+      "visitable": false,
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://blankprojects.com/Exhibitions",
+          "artists": []
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://blankprojects.com/Exhibitions",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://blankprojects.com/Exhibitions",
+          "artists": [
+            {
+              "name": "Natalie Paneng",
+              "firstDate": "2020-07-08",
+              "sourceUrl": "https://blankprojects.com/Portrait-and-Place",
+              "artistUrl": "https://lab.eigen-art.com/artist/natalie-paneng/",
+              "firstPublicYear": 2019,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2023-03-25",
+                  "organization": "Torrance Art Museum",
+                  "sourceUrl": "https://www.torranceartmuseum.com/colab-press-23"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2020,
+            "name": "Natalie Paneng",
+            "firstDate": "2020-07-08",
+            "artistUrl": "https://lab.eigen-art.com/artist/natalie-paneng/",
+            "windowEnd": "2025-07-08",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The gallery archive records 23 openings across the three calendar years, including a co-presentation in Berlin. Natalie Paneng reached Torrance Art Museum within five years. Earlier university purchases and ambiguous event dates affect other apparently strong candidates."
+      }
+    },
+    {
+      "id": "harpers",
+      "name": "Harper’s",
+      "city": "New York",
+      "country": "United States",
+      "area": "Chelsea",
+      "visitable": false,
+      "note": "Fernandez first showed at Harper’s Apartment in 2018. By 2024 the gallery had mounted three solo exhibitions of his work.",
+      "url": "https://www.harpersgallery.com/artists",
+      "tierCohorts": [
+        {
+          "year": 2018,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.harpersgallery.com/exhibitions/past",
+          "artists": [
+            {
+              "name": "Marcus Brutus",
+              "firstDate": "2018-09-12",
+              "sourceUrl": "https://www.harpersgallery.com/exhibitions/marcus-brutus3/press-release",
+              "artistUrl": "https://www.harpersgallery.com/attachment/en/5fe0ad4399d2ad2b320c38f2/TextOneColumnWithFile/60354bc88a3c1c51a50bdba2",
+              "firstPublicYear": 2018,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2022-11-20",
+                  "organization": "Zeitz Museum of Contemporary Art Africa",
+                  "sourceUrl": "https://zeitzmocaa.museum/zeitz-mocaa-announces-full-artist-line-up-for-highly-anticipated-exhibition-when-we-see-us-a-century-of-black-figuration-in-painting/"
+                }
+              ]
+            },
+            {
+              "name": "Cassi Namoda",
+              "firstDate": "2018-07-21",
+              "sourceUrl": "https://www.harpersgallery.com/exhibitions/cassi-namoda/press-release",
+              "artistUrl": "https://xavierhufkens.imgix.net/documents/NAMO_2025-04-18-135614_vxen.pdf",
+              "firstPublicYear": 2017,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2022-11-20",
+                  "organization": "Zeitz Museum of Contemporary Art Africa",
+                  "sourceUrl": "https://zeitzmocaa.museum/zeitz-mocaa-announces-full-artist-line-up-for-highly-anticipated-exhibition-when-we-see-us-a-century-of-black-figuration-in-painting/"
+                }
+              ]
+            },
+            {
+              "name": "Nicasio Fernandez",
+              "firstDate": "2018-10-24",
+              "sourceUrl": "https://www.harpersgallery.com/exhibitions/nicasio-fernandez/press-release",
+              "artistUrl": "https://www.nicasiofernandez.com/https/nicasio-fernandez-cv",
+              "firstPublicYear": 2015,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": []
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.harpersgallery.com/exhibitions/past",
+          "artists": []
+        },
+        {
+          "year": 2020,
+          "complete": false,
+          "eligibleCount": null,
+          "sourceUrl": "https://www.harpersgallery.com/exhibitions/past",
+          "artists": [
+            {
+              "name": "Diane Dal-Pra",
+              "firstDate": "2020-12-10",
+              "sourceUrl": "https://www.harpersgallery.com/exhibitions/12-artists2/press-release",
+              "artistUrl": "https://a.storyblok.com/f/238140/x/fd64aa3776/cv-diane-dal-pra-derouillon.pdf",
+              "firstPublicYear": 2019,
+              "baselineConfirmed": true,
+              "reviewedThrough": "",
+              "reviewSourceUrl": "",
+              "outcomes": [
+                {
+                  "kind": "museum_show",
+                  "date": "2024-09-19",
+                  "organization": "Musée d’Orsay",
+                  "sourceUrl": "https://www.musee-orsay.fr/fr/programme/agenda/evenements/le-jour-des-peintres"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tierAssessment": {
+        "version": "1.0",
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "completeYears": [],
+        "tier": "Unrated",
+        "reason": "Complete programme audits needed for 2018, 2019, 2020.",
+        "entrants": 0,
+        "successes": 0,
+        "resolved": 0,
+        "unresolved": 0,
+        "coverage": null,
+        "rate": null,
+        "lower": null,
+        "upper": null,
+        "institutional": 0,
+        "graduations": 0,
+        "successYears": [],
+        "rowResults": [
+          {
+            "year": 2018,
+            "name": "Marcus Brutus",
+            "firstDate": "2018-09-12",
+            "artistUrl": "https://www.harpersgallery.com/attachment/en/5fe0ad4399d2ad2b320c38f2/TextOneColumnWithFile/60354bc88a3c1c51a50bdba2",
+            "windowEnd": "2023-09-12",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          },
+          {
+            "year": 2018,
+            "name": "Cassi Namoda",
+            "firstDate": "2018-07-21",
+            "artistUrl": "https://xavierhufkens.imgix.net/documents/NAMO_2025-04-18-135614_vxen.pdf",
+            "windowEnd": "2023-07-21",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          },
+          {
+            "year": 2018,
+            "name": "Nicasio Fernandez",
+            "firstDate": "2018-10-24",
+            "artistUrl": "https://www.nicasiofernandez.com/https/nicasio-fernandez-cv",
+            "windowEnd": "2023-10-24",
+            "status": "incomplete",
+            "institutional": false,
+            "graduation": false
+          },
+          {
+            "year": 2020,
+            "name": "Diane Dal-Pra",
+            "firstDate": "2020-12-10",
+            "artistUrl": "https://a.storyblok.com/f/238140/x/fd64aa3776/cv-diane-dal-pra-derouillon.pdf",
+            "windowEnd": "2025-12-10",
+            "status": "incomplete",
+            "institutional": true,
+            "graduation": false
+          }
+        ]
+      },
+      "programmeAudit": {
+        "asOf": "2026-11-22",
+        "years": [
+          2018,
+          2019,
+          2020
+        ],
+        "summary": "The multi-location archive yields 37 openings at East Hampton, Harper’s Apartment and Chelsea. Brutus and Namoda reached Zeitz MOCAA and Dal-Pra reached the Musée d’Orsay within five years. In 2019, 13 of 14 named artists were returning or had longer careers. The classification of Bialke’s early record and several group-show participants in the other years keep the denominator open."
+      }
+    }
+  ],
+  "artists": [
+    {
+      "id": "oscar-murillo",
+      "name": "Oscar Murillo",
+      "galleryId": "carlos-ishikawa",
+      "medium": "Painting & installation",
+      "summary": "Murillo moves between painted canvases and participatory installations. An early London gallery presentation preceded international representation and a shared Turner Prize.",
+      "url": "https://www.carlosishikawa.com/artists/oscarmurillo/",
+      "birthYear": 1986,
+      "status": "watching",
+      "workExamples": [
+        {
+          "image": "work-images/e6d488f41da26a9b4832f44855c1aab9aa9b4026c541cfbaabef2a0ef11cc263.jpg",
+          "imageUrl": "https://www.carlosishikawa.com/site/assets/files/2343/1-om-2020.900x0.jpg",
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/trades-hall-and-institute/",
+          "caption": "The Institute of Reconciliation, 2014 – ongoing, Oil on linen and canvas, velvet, clay and corn sculptures, 350 x 930 cm",
+          "credit": "Image from the Carlos/Ishikawa programme."
+        },
+        {
+          "image": "work-images/4c92012073efd3921381246037a5a4bf6b4657a4c029b460885ac899bdaf11c0.jpg",
+          "imageUrl": "https://www.carlosishikawa.com/site/assets/files/2345/3-om-2020.900x0.jpg",
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/trades-hall-and-institute/",
+          "caption": "Industrial Park, 2019, performance",
+          "credit": "Image from the Carlos/Ishikawa programme."
+        },
+        {
+          "image": "work-images/34a3c9b5f5030fd2239cbfb7a09a619c2090d66eeab7b5da9707441670eefe5c.jpg",
+          "imageUrl": "https://www.carlosishikawa.com/site/assets/files/2348/6-om-2020.900x0.jpg",
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/trades-hall-and-institute/",
+          "caption": "Letter from America: performance documentation, Art Night, 2019, Video, 08:01 min",
+          "credit": "Image from the Carlos/Ishikawa programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoverySourceId": "source-carlos-ishikawa",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "discoveries": [
+        {
+          "galleryId": "carlos-ishikawa",
+          "sourceId": "source-carlos-ishikawa",
+          "url": "https://www.carlosishikawa.com/artists/oscarmurillo/",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "issy-wood",
+      "name": "Issy Wood",
+      "galleryId": "carlos-ishikawa",
+      "medium": "Painting",
+      "summary": "Wood paints clothing, interiors and objects drawn from auction catalogues and everyday life, often working on velvet.",
+      "url": "https://www.carlosishikawa.com/artists/issywood/",
+      "birthYear": 1993,
+      "status": "watching",
+      "workExamples": [
+        {
+          "image": "work-images/9cb0cab860acd3e50b774473300a10c4b2dd0ee355bfdbaaf58a165d54895ba5.jpg",
+          "imageUrl": "https://www.carlosishikawa.com/site/assets/files/14004/iw_furni_v5.900x0.jpg",
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/furni/",
+          "caption": "Furni 2, 2023, Sculpture: oil on velvet upholstered modular sofa system, 72 x 160 x 90 cm overall",
+          "credit": "Image from the Carlos/Ishikawa programme."
+        },
+        {
+          "image": "work-images/98b945c28b094615a0e5643d857299addd07b081b8f2d894e10006dbc129fc32.jpg",
+          "imageUrl": "https://www.carlosishikawa.com/site/assets/files/14006/iw_furni_v8.900x0.jpg",
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/furni/",
+          "caption": "Self portrait 46, 2023, Oil on linen, 42 x 29.5 x 2 cm",
+          "credit": "Image from the Carlos/Ishikawa programme."
+        },
+        {
+          "image": "work-images/39b576cea04a3e7a9421efad292a390312d659e2bc858ca6297a4b450072df11.jpg",
+          "imageUrl": "https://www.carlosishikawa.com/site/assets/files/14007/iw_furni_v9.900x0.jpg",
+          "sourceUrl": "https://www.carlosishikawa.com/exhibitions/furni/",
+          "caption": "Furni 5, 2023, Sculpture: oil on velvet upholstered modular sofa system, 47 x 80 x 90 cm overall",
+          "credit": "Image from the Carlos/Ishikawa programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoverySourceId": "source-carlos-ishikawa",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "discoveries": [
+        {
+          "galleryId": "carlos-ishikawa",
+          "sourceId": "source-carlos-ishikawa",
+          "url": "https://www.carlosishikawa.com/artists/issywood/",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "jesse-darling",
+      "name": "Jesse Darling",
+      "galleryId": "arcadia-missa",
+      "medium": "Sculpture & installation",
+      "summary": "Darling works with barriers, building materials and familiar objects to explore how bodies and institutions hold up under pressure.",
+      "url": "https://arcadiamissa.com/jesse-darling/",
+      "birthYear": 1981,
+      "status": "discovered",
+      "workExamples": [
+        {
+          "image": "work-images/35d0abfa9bf90d4063f89843bc84e69e7c05bd70fadec9cd1953ca307b1f2a8f.jpg",
+          "imageUrl": "https://arcadiamissa.com/wp-content/uploads/2024/11/AM_Jesse-Darling_VANITAS_Installation-view_17-768x513.jpg",
+          "sourceUrl": "https://arcadiamissa.com/jesse-darling/",
+          "caption": "Jesse Darling, Untitled (still life), 2018 – ongoing, Vitrine and flowers, Dimensions variable, Detail",
+          "credit": "Image from the Arcadia Missa programme."
+        },
+        {
+          "image": "work-images/a6686eed0aae27c550a3689e7de0aa4fb9f6b325111c942d1ea52080723d0b90.jpg",
+          "imageUrl": "https://arcadiamissa.com/wp-content/uploads/2023/09/Jesse-Darling-Turner-2023-055-768x768.jpg",
+          "sourceUrl": "https://arcadiamissa.com/jesse-darling/",
+          "caption": "Jesse Darling, Big Dipper, 2023, Welded steel, 390 x 190 cm (153 1/2 x 74 3/4 inches)",
+          "credit": "Image from the Arcadia Missa programme."
+        },
+        {
+          "image": "work-images/f4cf328fef921e3f67846458ceedbca64dcddbfc30e3d9c1574d5e4206f3f35a.jpg",
+          "imageUrl": "https://arcadiamissa.com/wp-content/uploads/2023/09/Jesse-Darling-Turner-2023-039-768x1152.jpg",
+          "sourceUrl": "https://arcadiamissa.com/jesse-darling/",
+          "caption": "Jesse Darling, Epistemologies, 2018-2023, Lever-arch files, ring binders, concrete, steel, 171 x 48 x 80 cm (67 3/8 x 18 7/8 x 31 1/2 inches)",
+          "credit": "Image from the Arcadia Missa programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoverySourceId": "source-arcadia-missa",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "discoveries": [
+        {
+          "galleryId": "arcadia-missa",
+          "sourceId": "source-arcadia-missa",
+          "url": "https://arcadiamissa.com/jesse-darling/",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "nnena-kalu",
+      "name": "Nnena Kalu",
+      "galleryId": "arcadia-missa",
+      "medium": "Sculpture & drawing",
+      "summary": "Kalu builds suspended forms by repeatedly wrapping fabric, plastic and tape. Rhythmic marks carry the same gesture into her large drawings.",
+      "url": "https://www.tate.org.uk/press/press-releases/nnena-kalu-wins-turner-prize-2025",
+      "birthYear": 1966,
+      "status": "watching",
+      "workExamples": [
+        {
+          "image": "work-images/900ea61238ed2ecc3141340c2a66e2cf1a75fe8a73e97f7d734070cff2ce432c.jpg",
+          "imageUrl": "https://pub-f962109abefc4796b66c04f62a21298e.r2.dev/2026/08/AM_NK_Nnena-Kalu_Installation-view_05_web.jpg",
+          "sourceUrl": "https://actionspace.org/exhibition/nnena-kalu-nnena-kalu-at-arcadia-missa/",
+          "caption": "Nnena Kalu. Installation view at Arcadia Missa, London, 2024.",
+          "credit": "Photograph by Tom Carter. Courtesy of the artist, ActionSpace and Arcadia Missa, London."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoverySourceId": "source-arcadia-missa",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "discoveries": [
+        {
+          "galleryId": "arcadia-missa",
+          "sourceId": "source-arcadia-missa",
+          "url": "https://www.tate.org.uk/press/press-releases/nnena-kalu-wins-turner-prize-2025",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "nat-faulkner",
+      "name": "Nat Faulkner",
+      "galleryId": "brunette-coleman",
+      "medium": "Photography & sculpture",
+      "summary": "Faulkner works with analogue photography and its apparatus, bringing the darkroom, exposure and the physical print into the gallery.",
+      "url": "https://camdenartcentre.org/whats-on/nat-faulkner",
+      "birthYear": 1995,
+      "status": "discovered",
+      "workExamples": [
+        {
+          "image": "work-images/ead217892da1f7a4459c7dd88bf8cd2e8b600b109d9547480e1ee566eb66cf5b.jpg",
+          "imageUrl": "https://camdenartcentre.s3.eu-west-2.amazonaws.com/uploads/2025/09/Installation-view-of-Nat-Faulkner-Strong-water-at-Camden-Art-Centre-2026.-Photo-credit-Rob-Harris.-Low-res-46-640x427.jpg",
+          "sourceUrl": "https://camdenartcentre.org/whats-on/nat-faulkner",
+          "caption": "Nat Faulkner, Strong water. Installation view at Camden Art Centre, London, 2026.",
+          "credit": "Photograph by Rob Harris, via Camden Art Centre."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoverySourceId": "source-brunette-coleman",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "discoveries": [
+        {
+          "galleryId": "brunette-coleman",
+          "sourceId": "source-brunette-coleman",
+          "url": "https://camdenartcentre.org/whats-on/nat-faulkner",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "jack-obrien",
+      "name": "Jack O’Brien",
+      "galleryId": "ginny-on-frederick",
+      "medium": "Sculpture & installation",
+      "summary": "O’Brien wraps and suspends familiar objects, changing how their shapes and uses are read.",
+      "url": "https://camdenartcentre.org/whats-on/jack-obrien",
+      "birthYear": 1993,
+      "status": "watching",
+      "workExamples": [],
+      "workPreviewStatus": "unavailable",
+      "tasteDecision": null,
+      "discoverySourceId": "source-ginny-on-frederick",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "discoveries": [
+        {
+          "galleryId": "ginny-on-frederick",
+          "sourceId": "source-ginny-on-frederick",
+          "url": "https://camdenartcentre.org/whats-on/jack-obrien",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "marietta-mavrokordatou",
+      "name": "Marietta Mavrokordatou",
+      "galleryId": "brunette-coleman",
+      "medium": "Photography",
+      "summary": "Mavrokordatou uses mirrors and macro lenses to explore the limits of vision.",
+      "url": "https://www.brunettecoleman.com/artists/marietta-mavrokordatou",
+      "birthYear": 1996,
+      "status": "discovered",
+      "discoverySourceId": "source-brunette-coleman",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "workExamples": [
+        {
+          "image": "work-images/cf2248c97adf4b77a2698d3ccf2c7636d14dd23d43e7687f4a0ecf73c1fca05a.jpg",
+          "imageUrl": "https://images.prismic.io/brunettecoleman/vB_wZgtAuwfSPFBc_BrunetteColeman_Ref-3610-3.jpg?auto=format%2Ccompress&fit=max&w=828",
+          "sourceUrl": "https://www.brunettecoleman.com/artists/marietta-mavrokordatou",
+          "caption": "Marietta Mavrokordatou, Trip 2, 2026, hand printed Chromogenic print on sprayed plywood, 168 × 119 × 3.5 cm",
+          "credit": "Image from the Brunette Coleman programme."
+        },
+        {
+          "image": "work-images/0ebf1bb38db9f817f495156e547e565221358e4e60fc9dc1f2eaa9362d27b889.jpg",
+          "imageUrl": "https://images.prismic.io/brunettecoleman/p9hFDkZ-Q2mizuDM_BrunetteColeman_Ref-3623-6.jpg?auto=format%2Ccompress&fit=max&w=828",
+          "sourceUrl": "https://www.brunettecoleman.com/artists/marietta-mavrokordatou",
+          "caption": "Marietta Mavrokordatou, Trip 1, 2026, hand printed Chromogenic print on sprayed plywood, 119 × 119 × 3.5 cm",
+          "credit": "Image from the Brunette Coleman programme."
+        },
+        {
+          "image": "work-images/a7267442f7413099a4f425d5f67d18dbbcc546b7b959c91b7b38898587f3e476.jpg",
+          "imageUrl": "https://images.prismic.io/brunettecoleman/9HQQO4thdQgbQJrH_BrunetteColeman_Ref-844-4.jpg?auto=format%2Ccompress&fit=max&w=828",
+          "sourceUrl": "https://www.brunettecoleman.com/artists/marietta-mavrokordatou",
+          "caption": "Marietta Mavrokordatou, 12:00, 2024, Archival pigment print, 53 × 80 cm",
+          "credit": "Image from the Brunette Coleman programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoveries": [
+        {
+          "galleryId": "brunette-coleman",
+          "sourceId": "source-brunette-coleman",
+          "url": "https://www.brunettecoleman.com/artists/marietta-mavrokordatou",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "maren-karlson",
+      "name": "Maren Karlson",
+      "galleryId": "soft-opening",
+      "medium": "Painting & photography",
+      "summary": "Karlson combines oil, graphite and photographic processes. Her London exhibition LAG opened at Soft Opening in 2026.",
+      "url": "https://softopening.london/artists/maren-karlson",
+      "status": "discovered",
+      "discoverySourceId": "source-soft-opening",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "workExamples": [
+        {
+          "image": "work-images/c31a81b96d4e9cad6a5c3de4514a0a8e6ace8869832a72d5140c7337056de9fd.jpg",
+          "imageUrl": "https://softopening.london/media/pages/artists/maren-karlson/f9415ae80d-1793962876/lag-ii-5-copy.jpg",
+          "sourceUrl": "https://softopening.london/artists/maren-karlson",
+          "caption": "LAG #10 (One Liberty Plaza), 2026",
+          "credit": "Image from the Soft Opening programme."
+        },
+        {
+          "image": "work-images/4d6c92fc20bca1cb17610a4d391895a6a6dd7de84ec9971dd86b9d6727cc6531.jpg",
+          "imageUrl": "https://softopening.london/media/pages/artists/maren-karlson/97323e9781-1793962943/lag-ii-7-copy.jpg",
+          "sourceUrl": "https://softopening.london/artists/maren-karlson",
+          "caption": "LAG #11 (One Liberty Plaza), 2026",
+          "credit": "Image from the Soft Opening programme."
+        },
+        {
+          "image": "work-images/3dfd4a635051362f1ab53c6948664561f2cc13bd715b05ff2c7b2a41ff750305.jpg",
+          "imageUrl": "https://softopening.london/media/pages/artists/maren-karlson/895588dd2c-1792512497/so_03_09_2026_23_web.jpg",
+          "sourceUrl": "https://softopening.london/artists/maren-karlson",
+          "caption": "LAG #2, 2026",
+          "credit": "Image from the Soft Opening programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoveries": [
+        {
+          "galleryId": "soft-opening",
+          "sourceId": "source-soft-opening",
+          "url": "https://softopening.london/artists/maren-karlson",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ],
+      "discoverySeenAt": "2026-11-22T12:00:00Z"
+    },
+    {
+      "id": "tasneem-sarkez",
+      "name": "Tasneem Sarkez",
+      "galleryId": "rose-easton",
+      "medium": "Mixed media",
+      "summary": "Sarkez brings autobiographical imagery, car culture and online visual references into her work.",
+      "url": "https://www.roseeaston.com/artists/tasneem-sarkez",
+      "birthYear": 2002,
+      "status": "discovered",
+      "discoverySourceId": "source-rose-easton",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "workExamples": [
+        {
+          "image": "work-images/7f9394ae8f613950d69ba3494a2ba522f169db56a6af9fef3d24daea5616a55a.jpg",
+          "imageUrl": "https://cdn.sanity.io/images/dn9qhls7/production/e53ae57b85f7f265b72d76b04283119fc42c33d7-2880x1920.jpg?w=800&auto=format&q=90",
+          "sourceUrl": "https://www.roseeaston.com/artists/tasneem-sarkez",
+          "caption": "Tasneem Sarkez, Day of Revenge, 2025, oil on canvas, 116.8 x 154.9 x 3.8 cm",
+          "credit": "Image from the Rose Easton programme."
+        },
+        {
+          "image": "work-images/08ed8e8a62a42d6d1980893eb373677db258d120ec3df22519dc0b2b6df9c81e.jpg",
+          "imageUrl": "https://cdn.sanity.io/images/dn9qhls7/production/5e459176ba36fc594186b26d04b0f7c96ab2e77f-2880x1920.jpg?w=800&auto=format&q=90",
+          "sourceUrl": "https://www.roseeaston.com/artists/tasneem-sarkez",
+          "caption": "Tasneem Sarkez, Golden Gun, 2025, oil on canvas, 63.5 x 127 x 3.8 cm",
+          "credit": "Image from the Rose Easton programme."
+        },
+        {
+          "image": "work-images/afac6b8eb7fa9961047f394e7a0103377b32f3bd6204d942c15b741472ef5c92.jpg",
+          "imageUrl": "https://cdn.sanity.io/images/dn9qhls7/production/49b14a293a69b5ee518ae467ab45d30cb47e9e81-1920x2880.jpg?w=800&auto=format&q=90",
+          "sourceUrl": "https://www.roseeaston.com/artists/tasneem-sarkez",
+          "caption": "Tasneem Sarkez, Failure to launch, 2025, oil on canvas, 76.2 x 45.7 x 3.8 cm",
+          "credit": "Image from the Rose Easton programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoveries": [
+        {
+          "galleryId": "rose-easton",
+          "sourceId": "source-rose-easton",
+          "url": "https://www.roseeaston.com/artists/tasneem-sarkez",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ajay-kurian",
+      "name": "Ajay Kurian",
+      "galleryId": "47-canal",
+      "medium": "Sculpture & installation",
+      "summary": "Kurian’s installation Childermass was included in the 2017 Whitney Biennial.",
+      "url": "https://47canal.us/artists/ajay-kurian",
+      "birthYear": 1984,
+      "status": "discovered",
+      "discoverySourceId": "source-47-canal",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "workExamples": [
+        {
+          "image": "work-images/b91444e82cf5987ef88d1ae47023aaf707e7b99186c9cf2375ee0c3b86c8a311.jpg",
+          "imageUrl": "https://47canal.us/media/pages/artists/ajay-kurian/44b0065642-1774057216/ajk_tenthousandyears_ajk-26-pa-037_1.jpg",
+          "sourceUrl": "https://47canal.us/artists/ajay-kurian",
+          "caption": "Ten Thousand Years, 2026",
+          "credit": "Image from the 47 Canal programme."
+        },
+        {
+          "image": "work-images/7a1757f86115a9e275cf205a76f5d8bb8409c9d64824a7ae124c27239c616b2f.jpg",
+          "imageUrl": "https://47canal.us/media/pages/artists/ajay-kurian/da3979458b-1711851827/ajk_mantis_1.jpg",
+          "sourceUrl": "https://47canal.us/artists/ajay-kurian",
+          "caption": "Mantis, 2022",
+          "credit": "Image from the 47 Canal programme."
+        },
+        {
+          "image": "work-images/3fbec111b069fd3d888e3254dcc21c87ad67090b6e551b4d9c3cc7655cc9d7cc.jpg",
+          "imageUrl": "https://47canal.us/media/pages/artists/ajay-kurian/59ac38c875-1711851806/3_ajk_hedgehog_1.jpg",
+          "sourceUrl": "https://47canal.us/artists/ajay-kurian",
+          "caption": "Hedgehog, 2022",
+          "credit": "Image from the 47 Canal programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoveries": [
+        {
+          "galleryId": "47-canal",
+          "sourceId": "source-47-canal",
+          "url": "https://47canal.us/artists/ajay-kurian",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "anna-uddenberg",
+      "name": "Anna Uddenberg",
+      "galleryId": "kraupa-tuskany-zeidler",
+      "medium": "Sculpture & performance",
+      "summary": "Uddenberg adapts furniture and vehicle components into sculptures that explore comfort and bodily control.",
+      "url": "https://www.k-t-z.com/artists/39-anna-uddenberg/",
+      "birthYear": 1982,
+      "status": "archived",
+      "discoverySourceId": "source-kraupa-tuskany-zeidler",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "workExamples": [
+        {
+          "image": "work-images/4fcef05303eaff06b1dfa53fe504888291ddfadd16329a66129a3565b1c54394.jpg",
+          "imageUrl": "https://static-assets.artlogic.net/w_600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/kraupatuskanyzeidler/images/view/fbd60707b21dc04394efef1724384b1cj/kraupa-tuskanyzeidler-anna-uddenberg-white-noise-human-resources-2025.jpg",
+          "sourceUrl": "https://www.k-t-z.com/artists/39-anna-uddenberg/works/5622-anna-uddenberg-white-noise-human-resources-2025/",
+          "caption": "White Noise (Human Resources)",
+          "credit": "Image from the Kraupa-Tuskany Zeidler programme."
+        },
+        {
+          "image": "work-images/62015d4db8a38af5e7d68a291d86b8035495da96128637bded66ab577725ea53.jpg",
+          "imageUrl": "https://static-assets.artlogic.net/w_600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/kraupatuskanyzeidler/images/view/94e78f1e9a42263400b31fc1fd3f734ej/kraupa-tuskanyzeidler-anna-uddenberg-premium-economy-2023-2024.jpg",
+          "sourceUrl": "https://www.k-t-z.com/artists/39-anna-uddenberg/works/5363-anna-uddenberg-premium-economy-2023-2024/",
+          "caption": "Premium Economy",
+          "credit": "Image from the Kraupa-Tuskany Zeidler programme."
+        },
+        {
+          "image": "work-images/19851906ead7001feac252d3be65d80a43af83b47d345eb7a4627a2e0a95b0f7.jpg",
+          "imageUrl": "https://static-assets.artlogic.net/w_600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/kraupatuskanyzeidler/images/view/869857e71150639a2e0fbd6284403246j/kraupa-tuskanyzeidler-anna-uddenberg-premium-economy-v-2023.jpg",
+          "sourceUrl": "https://www.k-t-z.com/artists/39-anna-uddenberg/works/5227-anna-uddenberg-premium-economy-v-2023/",
+          "caption": "Premium Economy V",
+          "credit": "Image from the Kraupa-Tuskany Zeidler programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoveries": [
+        {
+          "galleryId": "kraupa-tuskany-zeidler",
+          "sourceId": "source-kraupa-tuskany-zeidler",
+          "url": "https://www.k-t-z.com/artists/39-anna-uddenberg/",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "asemahle-ntlonti",
+      "name": "Asemahle Ntlonti",
+      "galleryId": "blank-projects",
+      "medium": "Painting & mixed media",
+      "summary": "Working in Cape Town, Ntlonti layers paint, paper and thread on canvas.",
+      "url": "https://blankprojects.com/Asemahle-Ntlonti-1",
+      "birthYear": 1993,
+      "status": "discovered",
+      "discoverySourceId": "source-blank-projects",
+      "discoveryMethod": "Curated from gallery programme",
+      "discoveryAttribution": "Public sample programme",
+      "workExamples": [
+        {
+          "image": "work-images/3c3925ceeeb8a5601910aa497fa43ba15bce49747dc605a99ab6e4aaca09d3ae.jpg",
+          "imageUrl": "https://freight.cargo.site/w/800/i/e3013d6512ed350c2f7f0a5c7a43c54ea33c7c4f0429ac069a9bed6cdd1356f8/Asemahle-Ntlonti--Imvisiswano--2025--Acrylic-paint--paper--acrylic-gel--and-leno-thread-on-canvas--123.5-x-113-x-6.5-cm-web.jpg",
+          "sourceUrl": "https://blankprojects.com/Asemahle-Ntlonti-1",
+          "caption": "Asemahle Ntlonti, Imvisiswano? (2025) | Acrylic paint, paper, acrylic gel, and leno thread on canvas, 123.5 x 113 x 6.5 cm",
+          "credit": "Image from the blank projects programme."
+        },
+        {
+          "image": "work-images/29f17d30059f6231d425abaaa23f16ab541f0c3a800815162474d9489dcb9548.jpg",
+          "imageUrl": "https://freight.cargo.site/w/800/i/abc4d8933a2437bd39ea965696e67a4da82ac442f8adb50a6406ca03846ab4d1/Asemahle-Ntlonti--Restlessness-Ndizinze-phi--2025--Acrylic-paint--paper--acrylic-gel--and-leno-thread-on-canvas--170-x-621-x-5-cm-1-web.jpg",
+          "sourceUrl": "https://blankprojects.com/Asemahle-Ntlonti-1",
+          "caption": "Asemahle Ntlonti, Restlessness(Ndizinze phi?) (2025) | Acrylic paint, paper, acrylic gel, and leno thread on canvas, 170 x 621 x 5 cm",
+          "credit": "Image from the blank projects programme."
+        },
+        {
+          "image": "work-images/d34ce5a678e0ba55f08e0494ed95ba7497ae54132e6641d48d1f43eb0bc66a25.jpg",
+          "imageUrl": "https://freight.cargo.site/w/800/i/94c49c7dffb074085fa403c6ab67813158c30c286f35e5f19a50391498cd9004/Asemahle-Ntlonti--iMpunde-2024-_-Acrylic-paint--paper--acrylic-gel--and-leno-thread-on-canvas--120-x-118-cm.jpg",
+          "sourceUrl": "https://blankprojects.com/Asemahle-Ntlonti-1",
+          "caption": "Asemahle Ntlonti, iMpunde (2024) | Acrylic paint, paper, acrylic gel, and leno thread on canvas, 120 x 118 cm",
+          "credit": "Image from the blank projects programme."
+        }
+      ],
+      "workPreviewStatus": "ready",
+      "tasteDecision": null,
+      "discoveries": [
+        {
+          "galleryId": "blank-projects",
+          "sourceId": "source-blank-projects",
+          "url": "https://blankprojects.com/Asemahle-Ntlonti-1",
+          "detectedAt": "2026-11-22T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "fieldwork-print-studio",
+      "name": "Fieldwork Print Studio",
+      "medium": "Digital print",
+      "summary": "Fictional studio for the acquisition worksheets. All edition sizes, costs and sales figures in these two examples are illustrative.",
+      "status": "watching",
+      "tasteDecision": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-carlos-ishikawa",
+      "name": "Carlos/Ishikawa · Artist roster",
+      "url": "https://www.carlosishikawa.com/artists/",
+      "kind": "Gallery",
+      "galleryId": "carlos-ishikawa",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-arcadia-missa",
+      "name": "Arcadia Missa · Artist roster",
+      "url": "https://arcadiamissa.com/category/artist/",
+      "kind": "Gallery",
+      "galleryId": "arcadia-missa",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-emalin",
+      "name": "Emalin · Artist roster",
+      "url": "https://emalin.co.uk/artists",
+      "kind": "Gallery",
+      "galleryId": "emalin",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-soft-opening",
+      "name": "Soft Opening · Artist roster",
+      "url": "https://softopening.london/artists",
+      "kind": "Gallery",
+      "galleryId": "soft-opening",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-ginny-on-frederick",
+      "name": "Ginny on Frederick · Fair profile and exhibitions",
+      "url": "https://www.frieze.com/gallery/ginny-frederick",
+      "kind": "Gallery",
+      "galleryId": "ginny-on-frederick",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-brunette-coleman",
+      "name": "Brunette Coleman · Artist roster",
+      "url": "https://www.brunettecoleman.com/artists",
+      "kind": "Gallery",
+      "galleryId": "brunette-coleman",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-rose-easton",
+      "name": "Rose Easton · Artist roster",
+      "url": "https://www.roseeaston.com/artists",
+      "kind": "Gallery",
+      "galleryId": "rose-easton",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-oof-gallery",
+      "name": "OOF Gallery · Exhibition programme",
+      "url": "https://oofgallery.com/",
+      "kind": "Gallery",
+      "galleryId": "oof-gallery",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-47-canal",
+      "name": "47 Canal · Artist roster",
+      "url": "https://47canal.us/artists",
+      "kind": "Gallery",
+      "galleryId": "47-canal",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-kraupa-tuskany-zeidler",
+      "name": "Kraupa-Tuskany Zeidler · Artist roster",
+      "url": "https://www.k-t-z.com/artists/",
+      "kind": "Gallery",
+      "galleryId": "kraupa-tuskany-zeidler",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-blank-projects",
+      "name": "blank projects · Artist roster",
+      "url": "https://blankprojects.com/Artists",
+      "kind": "Gallery",
+      "galleryId": "blank-projects",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-harpers",
+      "name": "Harper’s · Represented artists",
+      "url": "https://www.harpersgallery.com/artists",
+      "kind": "Gallery",
+      "galleryId": "harpers",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    },
+    {
+      "id": "source-camden-programme",
+      "name": "Camden Art Centre · Programme",
+      "url": "https://camdenartcentre.org/whats-on",
+      "kind": "Institution",
+      "status": "changed",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Sample exhibition record ready for review."
+    },
+    {
+      "id": "source-whitney-programme",
+      "name": "Whitney Museum · Exhibitions",
+      "url": "https://whitney.org/exhibitions",
+      "kind": "Institution",
+      "status": "ok",
+      "lastChecked": "2026-11-22T12:00:00Z",
+      "message": "Public sample snapshot."
+    }
+  ],
+  "settings": {
+    "currency": "USD",
+    "horizonYears": 5,
+    "annualBudgets": {
+      "2026": 3600
+    },
+    "autoRefresh": false,
+    "refreshHours": 24,
+    "refreshing": false
+  },
+  "assessments": [
+    {
+      "id": "sample-tidal-lines",
+      "artistId": "fieldwork-print-studio",
+      "title": "Tidal Lines · sample worksheet",
+      "edition": "Illustrative edition of 30 · archival digital print",
+      "condition": "Unframed, excellent condition",
+      "decision": "Considering",
+      "planYear": 2026,
+      "ask": 420,
+      "offerPrice": 360,
+      "ceiling": 370,
+      "buyCosts": 25,
+      "annualHolding": 15,
+      "sellFee": 15,
+      "sellCosts": 18,
+      "purchasePrice": null,
+      "askDate": "2026-10-04",
+      "currency": "USD",
+      "image": "images/sample-tidal-lines.jpg",
+      "imageCredit": "Original Fieldwork demo artwork",
+      "marketType": "Fictional studio release",
+      "notes": "Fictional example for testing the worksheet. All prices, costs and transactions are sample inputs.",
+      "comparables": [],
+      "hang": "Maybe"
+    },
+    {
+      "id": "sample-folded-light",
+      "artistId": "fieldwork-print-studio",
+      "title": "Folded Light · sample worksheet",
+      "edition": "Illustrative edition of 30 · archival digital print",
+      "condition": "Unframed, excellent condition",
+      "decision": "Bought",
+      "planYear": 2026,
+      "ask": 260,
+      "offerPrice": 220,
+      "ceiling": 230,
+      "buyCosts": 20,
+      "annualHolding": 6,
+      "sellFee": 12,
+      "sellCosts": 24,
+      "purchasePrice": 220,
+      "askDate": "2026-10-04",
+      "currency": "USD",
+      "image": "images/sample-folded-light.jpg",
+      "imageCredit": "Original Fieldwork demo artwork",
+      "marketType": "Fictional studio release",
+      "notes": "Fictional example for testing the worksheet. All prices, costs and transactions are sample inputs.",
+      "comparables": [],
+      "hang": "Yes"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "demo-review-camden",
+      "sourceId": "source-camden-programme",
+      "artistIds": [
+        "nat-faulkner"
+      ],
+      "title": "Strong water at Camden Art Centre",
+      "url": "https://camdenartcentre.org/whats-on/nat-faulkner",
+      "status": "pending",
+      "detectedAt": "2026-11-22T12:00:00Z",
+      "excerpt": "Sample review · Camden Art Centre lists Nat Faulkner’s exhibition Strong water in its programme."
+    }
+  ],
+  "events": [
+    {
+      "id": "oscar-murillo-2011-exhibition",
+      "artistId": "oscar-murillo",
+      "date": "2011",
+      "type": "Exhibition",
+      "title": "An early show at Carlos/Ishikawa",
+      "detail": "The artist’s CV records animals die from eating too much – bingo! in London.",
+      "source": "Carlos/Ishikawa",
+      "url": "https://www.carlosishikawa.com/artists/oscarmurillo/",
+      "galleryId": "carlos-ishikawa"
+    },
+    {
+      "id": "oscar-murillo-2013-09-representation",
+      "artistId": "oscar-murillo",
+      "date": "2013-09",
+      "type": "Representation",
+      "title": "Joins David Zwirner",
+      "detail": "David Zwirner dates its representation of Murillo to September 2013.",
+      "source": "David Zwirner",
+      "url": "https://www.davidzwirner.com/exhibitions/2014/mercantile-novel/press-release",
+      "destinationGallery": "David Zwirner",
+      "megaGallery": true,
+      "originGalleryId": "carlos-ishikawa"
+    },
+    {
+      "id": "oscar-murillo-2013-09-20-institution",
+      "artistId": "oscar-murillo",
+      "date": "2013-09-20",
+      "type": "Institution",
+      "title": "Solo exhibition at South London Gallery",
+      "detail": "The London institution opened its exhibition of Murillo’s paintings and installation.",
+      "source": "South London Gallery",
+      "url": "https://www.southlondongallery.org/exhibitions/oscar-murillo/"
+    },
+    {
+      "id": "oscar-murillo-2014-04-24-exhibition",
+      "artistId": "oscar-murillo",
+      "date": "2014-04-24",
+      "type": "Exhibition",
+      "title": "A Mercantile Novel",
+      "detail": "Murillo’s first exhibition with David Zwirner brought a working candy factory to the New York gallery.",
+      "source": "David Zwirner",
+      "url": "https://www.davidzwirner.com/exhibitions/2014/mercantile-novel/press-release"
+    },
+    {
+      "id": "oscar-murillo-2019-award",
+      "artistId": "oscar-murillo",
+      "date": "2019",
+      "type": "Award",
+      "title": "Shares the Turner Prize",
+      "detail": "Murillo was one of four joint winners of the 2019 Turner Prize.",
+      "source": "David Zwirner",
+      "url": "https://www.davidzwirner.com/artists/oscar-murillo"
+    },
+    {
+      "id": "oscar-murillo-2024-07-20-institution",
+      "artistId": "oscar-murillo",
+      "date": "2024-07-20",
+      "type": "Institution",
+      "title": "The flooded garden at Tate Modern",
+      "detail": "Visitors helped make a large-scale painting in the Turbine Hall.",
+      "source": "David Zwirner",
+      "url": "https://www.davidzwirner.com/artists/oscar-murillo"
+    },
+    {
+      "id": "oscar-murillo-2026-10-19-exhibition",
+      "artistId": "oscar-murillo",
+      "date": "2026-10-19",
+      "type": "Exhibition",
+      "title": "Unfinished thinking opens in Paris",
+      "detail": "David Zwirner presented paintings from Murillo’s manifestation series alongside his Social Maps.",
+      "source": "David Zwirner",
+      "url": "https://www.davidzwirner.com/exhibitions/2026/oscar-murillo-unfinished-thinking-paintings-and-social-maps"
+    },
+    {
+      "id": "issy-wood-2017-11-16-exhibition",
+      "artistId": "issy-wood",
+      "date": "2017-11-16",
+      "type": "Exhibition",
+      "title": "When You I Feel",
+      "detail": "Carlos/Ishikawa presented Wood’s solo show in London.",
+      "source": "Carlos/Ishikawa",
+      "url": "https://www.carlosishikawa.com/artists/issywood/",
+      "galleryId": "carlos-ishikawa"
+    },
+    {
+      "id": "issy-wood-2019-06-29-institution",
+      "artistId": "issy-wood",
+      "date": "2019-06-29",
+      "type": "Institution",
+      "title": "All The Rage at Goldsmiths CCA",
+      "detail": "Four galleries brought together paintings drawn from auction catalogues, snapshots and everyday objects.",
+      "source": "Goldsmiths CCA",
+      "url": "https://goldsmithscca.art/exhibition/issy-wood/"
+    },
+    {
+      "id": "issy-wood-2023-10-18-institution",
+      "artistId": "issy-wood",
+      "date": "2023-10-18",
+      "type": "Institution",
+      "title": "Study For No at Lafayette Anticipations",
+      "detail": "Wood’s first French solo exhibition brought more than 60 paintings to Paris.",
+      "source": "Lafayette Anticipations",
+      "url": "https://www.lafayetteanticipations.com/en/exposition/issy-wood"
+    },
+    {
+      "id": "jesse-darling-2012-exhibition",
+      "artistId": "jesse-darling",
+      "date": "2012",
+      "type": "Exhibition",
+      "title": "Stockholm Syndrome and Other System Failures",
+      "detail": "Arcadia Missa records this London presentation in Darling’s exhibition history.",
+      "source": "Arcadia Missa",
+      "url": "https://arcadiamissa.com/jesse-darling/",
+      "galleryId": "arcadia-missa"
+    },
+    {
+      "id": "jesse-darling-2016-exhibition",
+      "artistId": "jesse-darling",
+      "date": "2016",
+      "type": "Exhibition",
+      "title": "The Great Near",
+      "detail": "Solo presentation at Arcadia Missa in London.",
+      "source": "Arcadia Missa",
+      "url": "https://arcadiamissa.com/jesse-darling/",
+      "galleryId": "arcadia-missa"
+    },
+    {
+      "id": "jesse-darling-2018-institution",
+      "artistId": "jesse-darling",
+      "date": "2018",
+      "type": "Institution",
+      "title": "The Ballad of Saint Jerome at Tate Britain",
+      "detail": "Darling presented the exhibition in Tate Britain’s Art Now programme.",
+      "source": "Arcadia Missa",
+      "url": "https://arcadiamissa.com/jesse-darling/"
+    },
+    {
+      "id": "jesse-darling-2023-12-05-award",
+      "artistId": "jesse-darling",
+      "date": "2023-12-05",
+      "type": "Award",
+      "title": "Wins the Turner Prize",
+      "detail": "Tate named Darling the 2023 winner in Eastbourne. His nominations included exhibitions at Modern Art Oxford and Camden Art Centre.",
+      "source": "Tate",
+      "url": "https://www.tate.org.uk/press/press-releases/turner-prize-2023-winner"
+    },
+    {
+      "id": "jesse-darling-2024-09-07-exhibition",
+      "artistId": "jesse-darling",
+      "date": "2024-09-07",
+      "type": "Exhibition",
+      "title": "On Our Knees",
+      "detail": "Arcadia Missa presented a new solo exhibition of Darling’s work in London.",
+      "source": "Arcadia Missa",
+      "url": "https://arcadiamissa.com/jesse-darling-on-our-knees/",
+      "galleryId": "arcadia-missa"
+    },
+    {
+      "id": "nnena-kalu-2024-04-25-exhibition",
+      "artistId": "nnena-kalu",
+      "date": "2024-04-25",
+      "type": "Exhibition",
+      "title": "First London commercial solo show",
+      "detail": "Arcadia Missa exhibited Kalu’s hanging sculptures and drawings. ActionSpace identifies this as her first commercial solo exhibition in the city.",
+      "source": "ActionSpace",
+      "url": "https://actionspace.org/exhibition/nnena-kalu-nnena-kalu-at-arcadia-missa/",
+      "galleryId": "arcadia-missa"
+    },
+    {
+      "id": "nnena-kalu-2024-09-08-institution",
+      "artistId": "nnena-kalu",
+      "date": "2024-09-08",
+      "type": "Institution",
+      "title": "Hanging sculptures at Manifesta 15",
+      "detail": "Kalu’s Barcelona installation was one of the presentations cited in her Turner Prize nomination.",
+      "source": "Tate",
+      "url": "https://www.tate.org.uk/press/press-releases/nnena-kalu-wins-turner-prize-2025"
+    },
+    {
+      "id": "nnena-kalu-2025-05-08-representation",
+      "artistId": "nnena-kalu",
+      "date": "2025-05-08",
+      "type": "Representation",
+      "title": "Arcadia Missa announces representation",
+      "detail": "ActionSpace announced the gallery would represent Kalu following her 2024 solo show.",
+      "source": "ActionSpace",
+      "url": "https://actionspace.org/news/nnena-kalu-is-represented-by-arcadia-missa-gallery/",
+      "galleryId": "arcadia-missa",
+      "destinationGallery": "Arcadia Missa"
+    },
+    {
+      "id": "nnena-kalu-2025-12-09-award",
+      "artistId": "nnena-kalu",
+      "date": "2025-12-09",
+      "type": "Award",
+      "title": "Wins the Turner Prize",
+      "detail": "The award was announced in Bradford following Kalu’s exhibitions in Barcelona and Liverpool.",
+      "source": "Tate",
+      "url": "https://www.tate.org.uk/press/press-releases/nnena-kalu-wins-turner-prize-2025"
+    },
+    {
+      "id": "nat-faulkner-2024-07-13-exhibition",
+      "artistId": "nat-faulkner",
+      "date": "2024-07-13",
+      "type": "Exhibition",
+      "title": "Albedo at Brunette Coleman",
+      "detail": "Faulkner’s solo exhibition ran through 14 September in London.",
+      "source": "Brunette Coleman",
+      "url": "https://www.brunettecoleman.com/exhibitions/past",
+      "galleryId": "brunette-coleman"
+    },
+    {
+      "id": "nat-faulkner-2024-10-09-award",
+      "artistId": "nat-faulkner",
+      "date": "2024-10-09",
+      "type": "Award",
+      "title": "Camden Art Centre Emerging Artist Prize",
+      "detail": "Faulkner won the prize for his presentation with Brunette Coleman in the Focus section of Frieze London.",
+      "source": "Frieze",
+      "url": "https://www.frieze.com/article/nat-faulkner-camden-art-centre-emerging-artist-prize-frieze-london-2024",
+      "galleryId": "brunette-coleman"
+    },
+    {
+      "id": "nat-faulkner-2026-01-16-institution",
+      "artistId": "nat-faulkner",
+      "date": "2026-01-16",
+      "type": "Institution",
+      "title": "Strong water at Camden Art Centre",
+      "detail": "Faulkner’s first major UK institutional exhibition occupied Camden’s Central Space and Gallery 3.",
+      "source": "Camden Art Centre",
+      "url": "https://camdenartcentre.org/whats-on/nat-faulkner"
+    },
+    {
+      "id": "jack-obrien-2021-exhibition",
+      "artistId": "jack-obrien",
+      "date": "2021",
+      "type": "Exhibition",
+      "title": "Waiting For The Sun To Kill Me",
+      "detail": "Ginny on Frederick hosted this early London exhibition.",
+      "source": "Camden Art Centre",
+      "url": "https://camdenartcentre.org/whats-on/jack-obrien",
+      "galleryId": "ginny-on-frederick"
+    },
+    {
+      "id": "jack-obrien-2023-10-11-award",
+      "artistId": "jack-obrien",
+      "date": "2023-10-11",
+      "type": "Award",
+      "title": "Camden Art Centre Emerging Artist Prize",
+      "detail": "The award recognised O’Brien’s presentation with Ginny on Frederick at Frieze London.",
+      "source": "Frieze",
+      "url": "https://www.frieze.com/article/jack-obrien-wins-2023-camden-art-centre-emerging-artist-prize-frieze-london",
+      "galleryId": "ginny-on-frederick"
+    },
+    {
+      "id": "jack-obrien-2024-10-04-institution",
+      "artistId": "jack-obrien",
+      "date": "2024-10-04",
+      "type": "Institution",
+      "title": "The Reward at Camden Art Centre",
+      "detail": "A new commission filled Gallery Three following O’Brien’s Frieze prize.",
+      "source": "Camden Art Centre",
+      "url": "https://camdenartcentre.org/whats-on/jack-obrien"
+    },
+    {
+      "id": "marietta-mavrokordatou-2026-09-25-exhibition",
+      "artistId": "marietta-mavrokordatou",
+      "date": "2026-09-25",
+      "type": "Exhibition",
+      "title": "Trip at Brunette Coleman",
+      "detail": "The gallery’s solo presentation ran until 31 October.",
+      "source": "Brunette Coleman",
+      "url": "https://www.brunettecoleman.com/artists/marietta-mavrokordatou",
+      "galleryId": "brunette-coleman"
+    },
+    {
+      "id": "maren-karlson-2026-09-11-exhibition",
+      "artistId": "maren-karlson",
+      "date": "2026-09-11",
+      "type": "Exhibition",
+      "title": "LAG at Soft Opening",
+      "detail": "The London gallery presented a solo exhibition at its Minerva Street space.",
+      "source": "Soft Opening",
+      "url": "https://softopening.london/exhibitions",
+      "galleryId": "soft-opening"
+    },
+    {
+      "id": "tasneem-sarkez-2025-exhibition",
+      "artistId": "tasneem-sarkez",
+      "date": "2025",
+      "type": "Exhibition",
+      "title": "White-Knuckle in London",
+      "detail": "Rose Easton records the show in its exhibition history for Sarkez.",
+      "source": "Rose Easton",
+      "url": "https://www.roseeaston.com/artists/tasneem-sarkez",
+      "galleryId": "rose-easton"
+    },
+    {
+      "id": "ajay-kurian-2017-03-17-institution",
+      "artistId": "ajay-kurian",
+      "date": "2017-03-17",
+      "type": "Institution",
+      "title": "Childermass at the Whitney Biennial",
+      "detail": "The Whitney installed Kurian’s sculpture in its 2017 biennial, crediting 47 Canal.",
+      "source": "Whitney Museum of American Art",
+      "url": "https://whitney.org/exhibitions/2017-biennial"
+    },
+    {
+      "id": "anna-uddenberg-2021-04-30-exhibition",
+      "artistId": "anna-uddenberg",
+      "date": "2021-04-30",
+      "type": "Exhibition",
+      "title": "BIG BABY in Berlin",
+      "detail": "Kraupa-Tuskany Zeidler presented Uddenberg’s solo show during Gallery Weekend Berlin.",
+      "source": "Kraupa-Tuskany Zeidler",
+      "url": "https://www.k-t-z.com/artists/39-anna-uddenberg/",
+      "galleryId": "kraupa-tuskany-zeidler"
+    }
+  ],
+  "galleryTierFramework": {
+    "version": "1.0",
+    "intakeYears": 3,
+    "followupYears": 5,
+    "maxCareerYears": 5,
+    "minEntrants": 10,
+    "minCoverage": 0.8,
+    "confidence": 0.95,
+    "proven": {
+      "minEntrants": 15,
+      "minLower": 0.2,
+      "minInstitutional": 3,
+      "minSuccessYears": 2
+    },
+    "promising": {
+      "minSuccesses": 2,
+      "minLower": 0.1
+    },
+    "benchmark": [
+      "Gagosian",
+      "David Zwirner",
+      "Hauser & Wirth",
+      "Pace Gallery"
+    ],
+    "methods": [
+      {
+        "title": "NIST · Wilson proportion interval",
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm"
+      },
+      {
+        "title": "ICOM · Museum definition",
+        "url": "https://icom.museum/en/resources/standards-guidelines/museum-definition/"
+      }
+    ]
+  },
+  "taste": {
+    "followed": 0,
+    "archived": 0,
+    "indexedImages": 29,
+    "totalImages": 29
+  }
+}

@@ -1,0 +1,333 @@
+.dc-toolbar {
+  margin-bottom: 16px;
+}
+.dc-toolbar:has(+ .dc-mix) {
+  margin-bottom: 8px;
+}
+.dc-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.dc-order select {
+  color: var(--ink);
+}
+.dc-learning,
+.dc-match-note {
+  color: var(--muted);
+  line-height: 1.45;
+}
+.dc-mix {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.dc-mix-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+}
+.dc-mix-control label {
+  font-weight: 600;
+}
+.dc-mix-control input {
+  width: clamp(80px, 10vw, 145px);
+  margin: 0;
+  min-height: 30px;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+.dc-mix-control output {
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+  min-width: 4ch;
+}
+.dc-learning {
+  flex: 1 1 190px;
+  margin: 0;
+  font-size: 0.875rem;
+}
+.dc-match-note {
+  margin: 7px 0 0;
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+.dc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.dc-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.dc-works,
+.dc-unavailable {
+  width: 100%;
+  aspect-ratio: 1.65;
+  background: #e9ebe3;
+  border-bottom: 1px solid var(--line);
+}
+.dc-works {
+  display: grid;
+  gap: 3px;
+  flex: none;
+  min-height: 0;
+}
+.dc-count-1 {
+  grid-template-columns: 1fr;
+}
+.dc-count-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.dc-count-3 {
+  grid-template-columns: 1.8fr 1fr;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+}
+.dc-count-3 > :first-child {
+  grid-row: span 2;
+}
+.dc-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  background: #efefea;
+  cursor: zoom-in;
+}
+.dc-tile:focus-visible {
+  outline-offset: -3px;
+}
+.dc-tile img,
+.dc-strip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.dc-tile img {
+  position: absolute;
+  inset: 0;
+}
+.dc-tile:hover {
+  background: #e3e6dc;
+}
+.dc-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+.dc-details {
+  padding: 15px 16px 11px;
+  flex: 1;
+}
+.dc-details h2 {
+  font-size: 1.55rem;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  margin-bottom: 6px;
+}
+.dc-details h2 button,
+.dc-compact .copy button {
+  text-align: left;
+}
+.dc-details h2 button:hover,
+.dc-gallery button:hover,
+.dc-compact .copy button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dc-gallery {
+  display: flex;
+  align-items: baseline;
+  gap: 0.33rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.dc-gallery button {
+  text-align: left;
+  color: var(--green);
+  font-weight: 570;
+}
+.dc-gallery svg {
+  align-self: center;
+}
+.dc-gallery > span {
+  white-space: nowrap;
+}
+.dc-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 16px 15px;
+}
+.dc-actions .btn {
+  min-height: 37px;
+}
+.dc-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 22px;
+}
+.dc-pager span {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.dc-viewer {
+  display: grid;
+  gap: 12px;
+}
+.dc-viewer figure {
+  margin: 0;
+}
+.dc-viewer figure > img {
+  display: block;
+  width: 100%;
+  max-height: 49dvh;
+  object-fit: contain;
+  background: #f0f1ea;
+  border-radius: 6px;
+}
+.dc-viewer figcaption {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+.dc-viewer .dc-actions {
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+}
+.dc-evidence,
+.dc-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dc-strip {
+  justify-content: flex-start;
+}
+.dc-strip button {
+  width: 51px;
+  height: 41px;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: #f0f1ea;
+}
+.dc-strip button[aria-pressed="true"] {
+  border: 2px solid var(--green);
+  padding: 2px;
+}
+.dc-strip span {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+.dc-compact {
+  cursor: default;
+}
+.dc-compact .dc-thumb {
+  width: 50px;
+  height: 42px;
+  flex: none;
+  border-radius: 4px;
+}
+.dc-compact .dc-gallery {
+  font-size: 0.73rem;
+}
+.dc-compact .dc-gallery svg,
+.dc-compact .dc-gallery > span {
+  display: none;
+}
+.dc-compact-actions {
+  display: flex;
+  gap: 3px;
+}
+.dc-compact-actions .icon-btn {
+  min-width: 27px;
+  min-height: 28px;
+  padding: 4px;
+}
+#toast [data-dc-action="undo"] {
+  font-weight: 650;
+  color: white;
+  margin-left: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (min-width: 1660px) {
+  .dc-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1120px) {
+  .dc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+@media (max-width: 565px) {
+  .dc-mix {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 8px;
+    padding: 10px;
+  }
+  .dc-mix-control {
+    display: grid;
+    grid-template-columns: auto minmax(25px, 1fr) auto;
+    gap: 5px;
+  }
+  .dc-mix-control input {
+    width: 100%;
+    min-width: 0;
+  }
+  .dc-learning {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .dc-reshuffle {
+    padding: 7px 9px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .dc-grid {
+    grid-template-columns: 1fr;
+  }
+  .dc-toolbar .searchbox {
+    width: 100%;
+  }
+  .dc-toolbar .result-count {
+    width: 100%;
+  }
+  .dc-actions .btn {
+    min-height: 42px;
+  }
+}

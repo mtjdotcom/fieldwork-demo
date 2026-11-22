@@ -1,0 +1,42 @@
+{
+  "oscar-murillo": {
+    "image": "images/oscar-murillo.jpg",
+    "caption": "Oscar Murillo, Capsule 07. Installation view at Haus der Kunst, Munich, 2017.",
+    "photographer": "Maximilian Geuter",
+    "credit": "Photograph by Maximilian Geuter, via Carlos/Ishikawa.",
+    "source": "https://www.carlosishikawa.com/artists/oscarmurillo/",
+    "imageUrl": "https://www.carlosishikawa.com/site/assets/files/3126/img_2233.1200x0.jpg"
+  },
+  "issy-wood": {
+    "image": "images/issy-wood.jpg",
+    "caption": "Issy Wood, All The Rage. Installation view at Goldsmiths CCA, London, 2019.",
+    "photographer": "Mark Blower",
+    "credit": "Photograph © Mark Blower. Courtesy of the artist and Carlos/Ishikawa, London.",
+    "source": "https://goldsmithscca.art/exhibition/issy-wood/",
+    "imageUrl": "https://goldsmithscca.art/wp-content/uploads/2019/07/Mark-Blower-190628-Issy-Wood-Goldsmiths-CCA-0001-e1690540006694.jpg"
+  },
+  "nnena-kalu": {
+    "image": "images/nnena-kalu.jpg",
+    "caption": "Nnena Kalu. Installation view at Arcadia Missa, London, 2024.",
+    "photographer": "Tom Carter",
+    "credit": "Photograph by Tom Carter. Courtesy of the artist, ActionSpace and Arcadia Missa, London.",
+    "source": "https://actionspace.org/exhibition/nnena-kalu-nnena-kalu-at-arcadia-missa/",
+    "imageUrl": "https://pub-f962109abefc4796b66c04f62a21298e.r2.dev/2026/08/AM_NK_Nnena-Kalu_Installation-view_05_web.jpg"
+  },
+  "jesse-darling": {
+    "image": "images/jesse-darling.jpg",
+    "caption": "Jesse Darling, The Great Near. Installation view at Arcadia Missa, London, 2016.",
+    "photographer": null,
+    "credit": "Image from the Arcadia Missa exhibition archive.",
+    "source": "https://arcadiamissa.com/the-great-near/",
+    "imageUrl": "https://arcadiamissa.com/wp-content/uploads/2020/03/Jesse-Darling-The-Great-Near-Arcadia-Missa-2-1024x683.jpg"
+  },
+  "nat-faulkner": {
+    "image": "images/nat-faulkner.jpg",
+    "caption": "Nat Faulkner, Strong water. Installation view at Camden Art Centre, London, 2026.",
+    "photographer": "Rob Harris",
+    "credit": "Photograph by Rob Harris, via Camden Art Centre.",
+    "source": "https://camdenartcentre.org/whats-on/nat-faulkner",
+    "imageUrl": "https://camdenartcentre.s3.eu-west-2.amazonaws.com/uploads/2025/09/Installation-view-of-Nat-Faulkner-Strong-water-at-Camden-Art-Centre-2026.-Photo-credit-Rob-Harris.-Low-res-46-640x427.jpg"
+  }
+}
