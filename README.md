@@ -10,4 +10,4 @@ Run `python3 -m http.server 8000` in this directory and open [the local preview]
 
 ## Updating the interface
 
-Run `python3 tools/sync_interface.py /path/to/fieldwork` with the path to a Fieldwork checkout. The script copies the shared frontend, selected credited artwork and the public audit. It adapts links for GitHub Pages. The demo workspace lives in `demo-state.json` and the browser adapter lives in `demo-api.js` and `demo-projection.js`. After changing the local app’s data contract, check the corresponding adapter behaviour before publishing.
+The Fieldwork app publishes shared interface changes here automatically after a push to its main branch. Maintain the sample records, credited images, historical audit and browser API adapter in this repository. When the app changes its data contract, update the demo adapter and sample records together.
