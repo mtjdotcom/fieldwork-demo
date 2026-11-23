@@ -159,8 +159,8 @@
       ['Edition',r=>evidence(r.edition)],
       ['Generation',r=>{const a=artist(r); if (!a.birthYear) return evidence(a.generation);
         const age=2025-Number(a.birthYear);
-        const cohort=age>=28 && age<=38 ? ' · within Naimi’s 28–38 cohort' : '';
-        return `Born ${escape(a.birthYear)}<small>Turned ${age} in the interview year (2025)${cohort}.</small>`;
+        const cohort=age>=28 && age<=38 ? ' · within the 28–38 cohort' : '';
+        return `Born ${escape(a.birthYear)}<small>Turned ${age} in 2025${cohort}.</small>`;
       }],
       ['Institutional interest',r=>r.institutionEvidence ? evidence(r.institutionEvidence) + ' ' + sourceLink(r.careerSource,'Source') : artistMilestones(r,/institut|museum|collection|award|prize/i)||evidence('')],
       ['Gallery programme',r=>r.galleryEvidence ? evidence(r.galleryEvidence) + ' ' + sourceLink(r.careerSource,'Source') : artistMilestones(r,/gallery|exhibition|representation/i) || evidence('')],
