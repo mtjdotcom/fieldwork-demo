@@ -18,10 +18,11 @@
       stages:['Local writing and independent blogs.', 'Substantive coverage in major art magazines.', 'Monographs and scholarly attention.']}
   ];
   const topics = [
-    ['Taste and distinctiveness','Would you hang this piece? Record what makes it recognisable and which work you would choose from the same series.'],
+    ['Taste and distinctiveness','Would you hang this piece? Record what makes it recognisable and which work you would choose from the same series. On a second look, note what you noticed and where the work would hang.'],
     ['Gallery track record','Trace early shows to later representation at Gagosian, Hauser & Wirth, David Zwirner or Pace.'],
     ['Depth of demand','Compare lots sold, unsold lots and the number of active years. Consider which collectors might still want this kind of work when you sell.'],
     ['Quality of the individual work','Compare the offered piece with definitive examples in the artist’s body of work. Note the series, condition, scale and edition.'],
+    ['Documentation for this copy','Record what identifies the work and its edition. For a new work, look for the publisher’s or gallery’s invoice. For a resale, ask for its ownership history. Record what an inspection, recent photographs or a condition report actually show.'],
     ['Gallery relationships','Keep a record of visits and conversations. A new piece offered between exhibitions can be a chance to see a stronger example.'],
     ['Cost of selling','Record the actual fees for your route to resale and compare what you would receive with the full cost of buying and holding the work.']
   ];
@@ -35,7 +36,7 @@
       </section>
       <section class="pf-reading"><header class="section-head"><h2>Collecting criteria</h2></header>
       <div class="framework-grid">${topics.map(([title,body])=>`<article class="panel prose"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('')}</div></section>
-      <section class="panel prose pf-reading"><h2>Five-year break-even</h2><p>Compare your all-in purchase cost, holding costs and selling fees in USD. For an edition, use realised prices for the same version and colourway wherever possible.</p><div class="actions"><button class="btn" type="button" data-view="desk">Open acquisition desk</button></div></section>`;
+      <section class="panel prose pf-reading"><h2>Five-year break-even</h2><p>What would you need to sell this work for to recover your full costs? In the acquisition desk, compare that figure with documented resales of the same edition or closely comparable works. Check the dates, condition and price basis. A publisher’s release price tells you what it cost to buy the work. A completed resale shows what a buyer paid for it later.</p><div class="actions"><button class="btn" type="button" data-view="desk">Open acquisition desk</button></div></section>`;
   }
 
   const byId = id => state().artists.find(a=>a.id === id);

@@ -17,6 +17,10 @@
     const [id, label] = Array.isArray(value) ? value : [value, value];
     return `<option value="${escape(id)}"${String(id) === String(selected) ? ' selected' : ''}>${escape(label)}</option>`;
   }).join('');
+  const matchOptions = [['','Unreviewed'],['close','Same edition or closely comparable unique work'],['context','Context only']];
+  const grossBases = ['Hammer price','Gross resale before seller fees'];
+  const priceBases = ['Reported sold price',...grossBases,'Price including buyer’s premium','Seller proceeds',
+    'Asking price','Publisher release price','Auction estimate'];
   let planYear = nowYear;
   let selectedLeft = '';
   let selectedRight = '';
@@ -82,6 +86,7 @@
       <dl class="ws-row"><div><dt>${row.decision === 'Bought' ? 'Paid price' : 'Listing ask'}</dt><dd>${usd(number(row.decision === 'Bought' ? row.purchasePrice : row.ask))}</dd></div>
       <div><dt>Personal ceiling</dt><dd>${usd(number(row.ceiling))}</dd></div>
       <div><dt>Yr 5 break-even</dt><dd>${usd(e.breakEven)}</dd></div></dl>
+      <div class="ws-caption">${resaleSummary(row,e.breakEven)}</div>
       <div class="ws-card-footer">${sourceLink(row.sourceUrl,'Listing source') || '<span class="ws-unknown">No listing source</span>'}${action('edit','Open worksheet',row.id)}</div>
     </article>`;
   }
@@ -121,30 +126,62 @@
       ${errorEl()}${formButtons('Save plan')}</form>`);
   }
 
-  function sourceLink(url,label) {
+  function hasSource(url) {
     try {
-      if (['http:','https:'].includes(new URL(url).protocol)) return fw().link(url,label);
-    } catch {}
-    return '';
+      return ['http:','https:'].includes(new URL(url).protocol);
+    } catch { return false; }
+  }
+  function sourceLink(url,label) {
+    return hasSource(url) ? fw().link(url,label) : '';
+  }
+
+  function validSaleDate(value) {
+    const iso = /^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/.exec(value || '');
+    if (!iso) return false;
+    const day = `${iso[1]}-${iso[2] || '01'}-${iso[3] || '01'}`;
+    const time = Date.parse(day);
+    return Number.isFinite(time) && time <= Date.now() && new Date(time).toISOString().startsWith(day);
+  }
+
+  function comparableGrossSale(comp) {
+    return comp?.match === 'close' && grossBases.includes(comp.basis) && number(comp.price) > 0 &&
+      typeof comp.edition === 'string' && comp.edition.trim() && validSaleDate(comp.date) && hasSource(comp.sourceUrl);
+  }
+
+  function resaleSummary(row,breakEven) {
+    const comps = Array.isArray(row.comparables) ? row.comparables : [];
+    const sales = comps.filter(comparableGrossSale);
+    if (!sales.length) return '<strong>Resale evidence insufficient</strong>';
+    const prices = sales.map(comp => Number(comp.price));
+    const dates = sales.map(comp => comp.date).sort();
+    const low = Math.min(...prices), high = Math.max(...prices);
+    const period = dates[0] === dates[dates.length-1] ? dates[0] : `${dates[0]} to ${dates[dates.length-1]}`;
+    const range = low === high ? usd(low) : `${usd(low)}–${usd(high)}`;
+    const reached = prices.filter(price => price + 1e-8 >= breakEven).length;
+    return `<strong>${range}</strong> · ${sales.length} close resale${sales.length === 1 ? '' : 's'} · ${escape(period)}
+      ${breakEven == null ? '' : `<br>${reached} of ${sales.length} reached the five-year threshold.`}`;
   }
 
   function compFields(comp = {}) {
     return `<div class="ws-comp">
-      <div class="ws-comp-top"><strong>Comparable sale</strong>${action('remove-comp','Remove')}</div>
-      <div class="ws-fields">${field('comparableDate','Sale date or year',comp.date,'text','placeholder="YYYY-MM-DD or YYYY" required')}
-        ${field('comparablePrice','Sale price (USD)', comp.price,'number','min="0" step="0.01" required')}
-        ${select('comparableBasis','Price basis',['Reported sold price','Hammer price','Price including buyer’s premium','Seller proceeds'],comp.basis)}
-        ${field('comparableEdition','Edition / variant match',comp.edition,'text','required')}
-        ${field('comparableCondition','Condition',comp.condition)}${field('comparableSource','Sale record URL',comp.sourceUrl,'url','placeholder="https://…"')}
+      <div class="ws-comp-top"><strong>Price record</strong>${action('remove-comp','Remove')}</div>
+      <div class="ws-fields">${field('comparableDate','Sale or observation date',comp.date,'text','placeholder="YYYY-MM-DD or YYYY" required')}
+        ${field('comparablePrice','Recorded price (USD)', comp.price,'number','min="0" step="0.01" required')}
+        ${select('comparableBasis','Price basis',comp.basis && !priceBases.includes(comp.basis) ? [...priceBases,comp.basis] : priceBases,comp.basis)}
+        ${select('comparableMatch','Match to this work',matchOptions,comp.match || '')}
+        ${field('comparableEdition','Work, edition and variant',comp.edition,'text','required')}
+        ${field('comparableCondition','Condition',comp.condition)}${field('comparableSource','Price record URL',comp.sourceUrl,'url','placeholder="https://…"')}
       </div></div>`;
   }
 
   function comparisonSales(row) {
     const comps = Array.isArray(row.comparables) ? row.comparables : [];
-    if (!comps.length) return '<span class="ws-unknown">No sales recorded</span>';
+    if (!comps.length) return '<span class="ws-unknown">No price records</span>';
+    const matchLabels = {'':'Match unreviewed', context:'Context only', close:'Close match · outside resale range'};
     return comps.map(comp => `<div class="ws-cmp-sale"><b>${usd(number(comp.price))}</b> · ${escape(comp.date)}
       <small>${escape(comp.basis)} · ${escape(comp.edition)}${comp.condition ? ' · ' + escape(comp.condition) : ''}</small>
-      ${sourceLink(comp.sourceUrl,'Sale record')}</div>`).join('');
+      <small>${comparableGrossSale(comp) ? 'Included in resale range' : matchLabels[comp.match || ''] || 'Match unreviewed'}</small>
+      ${sourceLink(comp.sourceUrl,'Price record')}</div>`).join('');
   }
 
   function comparisonTable(left,right) {
@@ -166,12 +203,16 @@
       ['Gallery programme',r=>r.galleryEvidence ? evidence(r.galleryEvidence) + ' ' + sourceLink(r.careerSource,'Source') : artistMilestones(r,/gallery|exhibition|representation/i) || evidence('')],
       ['Definitive image · your view',r=>evidence(r.definitive) + ' ' + sourceLink(r.definitiveSource,'Work reference')],
       ['Market depth',r=>evidence(r.marketDepth)],
-      ['Comparable sales',comparisonSales],
+      ['Recorded prices',comparisonSales],
       ['Ask and condition',r=>`${usd(number(r.ask))} · ${evidence(r.marketType)} ${r.askDate ? '· '+escape(r.askDate) : ''}<small>${evidence(r.condition)}</small>${sourceLink(r.sourceUrl,'Listing source')}`],
       ['Personal ceiling',r=>usd(number(r.ceiling))],
       ['Would I hang it?',r=>evidence(r.hang)],
+      ['Origin and ownership records',r=>evidence(r.documentationOrigin)],
+      ['Condition evidence',r=>evidence(r.documentationCondition)],
+      ['Second look',r=>`${evidence(r.secondLookNotes)}${r.secondLookDate ? `<small>${escape(r.secondLookDate)}</small>` : ''}`],
       ['Collector verdict',r=>evidence(r.verdict)],
-      ['Year 5 break-even',r=>economics(r).breakEven != null ? usd(economics(r).breakEven) : '<span class="ws-unknown">Enter cost assumptions</span>']
+      ['Year 5 break-even',r=>economics(r).breakEven != null ? usd(economics(r).breakEven) : '<span class="ws-unknown">Enter cost assumptions</span>'],
+      ['Closest documented resales',r=>resaleSummary(r,economics(r).breakEven)]
     ];
     return `<div class="table-wrap ws-compare-wrap"><table class="ws-compare-table"><thead><tr><th>Research criterion</th>
       ${[left,right].map(r=>`<th>${escape(r.title)}<small>${escape(fw().artistName(r.artistId))}</small></th>`).join('')}
@@ -200,6 +241,8 @@
       <strong>${complete ? usd(e.breakEven) : 'Costs needed'}</strong><span>Gross resale price to break even</span></div>
       <p>${complete ? 'Gross resale less selling fees and costs must cover your acquisition and five years of holding costs.' :
         'Enter an acquisition price and each cost assumption. Enter 0 for a cost you expect to be zero.'}</p>
+      <p><b>Closest documented resales</b><br>${resaleSummary(row,e.breakEven)}</p>
+      <p>For editions, match the edition and variant. For unique works, compare the same artist and series in a similar medium and scale. Check condition in both cases. The range uses close matches with a date, source and either a hammer price or a gross resale price before seller fees.</p>
       ${complete ? `<div class="ws-scenarios">${scenarios.map(factor=>{
         const gross = e.price * factor;
         const diff = delta(gross);
@@ -207,6 +250,13 @@
           <small>${usd(Math.abs(diff))} ${Math.abs(diff) < 0.005 ? 'difference' : diff < 0 ? 'loss' : 'gain'}</small></div>`;
       }).join('')}</div><p>Illustrative changes from the acquisition price. Figures exclude inflation and investment returns.</p>` : ''}
       </div>`;
+  }
+
+  function documentationFields(row) {
+    return group('Documentation for this work',
+      '<p class="ws-wide ws-caption">For a new work, record the artist, gallery or publisher invoice and any edition details it confirms. For a resale, trace the ownership history you can document. Note any gaps you want to ask the seller about.</p>' +
+      area('documentationOrigin','Origin and ownership records',row.documentationOrigin) +
+      area('documentationCondition','Condition evidence from photos, reports or an inspection',row.documentationCondition));
   }
 
   function add(id) {
@@ -237,13 +287,18 @@
         field('sourceUrl','Listing URL',row.sourceUrl,'url','placeholder="https://…"') +
         dollars('ask','Listing ask (USD)',row.ask) + field('askDate','Ask observed on',date,'date') +
         dollars('ceiling','Personal price ceiling (USD)',row.ceiling),true)}
+      ${documentationFields(row)}
       ${group('Collecting rubric',
         area('institutionEvidence','Institutional interest',row.institutionEvidence) + area('galleryEvidence','Gallery programme',row.galleryEvidence) +
         area('definitive','What makes this a definitive image?',row.definitive) + area('marketDepth','Market depth and evidence limits',row.marketDepth) +
         select('hang','Would I hang it?',[['','Unrecorded'],'Yes','Maybe','No'],row.hang || '') + area('verdict','Collector verdict',row.verdict) +
         area('notes','Research notes',row.notes))}
-      ${group(`Comparable sales (${row.comparables?.length || 0})`, `<div class="ws-wide"><div id="ws-comps">${(row.comparables || []).map(compFields).join('')}</div>
-        ${action('new-comp','Add comparable sale')}</div>`)}
+      ${group('Second look',
+        field('secondLookDate','Date revisited',row.secondLookDate,'date') +
+        area('secondLookNotes','What did I notice the second time, and where would it hang?',row.secondLookNotes) +
+        '<p class="ws-wide ws-caption">You can revisit the work online or in person. If it needs a frame, include the framing quote once in total buy-side costs.</p>')}
+      ${group(`Comparable price records (${row.comparables?.length || 0})`, `<div class="ws-wide"><div id="ws-comps">${(row.comparables || []).map(compFields).join('')}</div>
+        ${action('new-comp','Add price record')}</div>`)}
       ${group('Purchase costs and five-year resale', `<p class="ws-wide ws-caption">Use USD throughout. Include buyer’s premium, shipping, tax, framing and other purchase expenses in buy-side costs. For a prospect, the model uses your planned offer or the listing ask. A purchase uses its recorded paid price.</p>${costInputs}
         <div id="ws-scenarios" class="ws-wide" aria-live="polite">${model(row)}</div>`, true)}
       ${errorEl()}${formButtons('Save assessment')}</form>`;
@@ -268,7 +323,8 @@
     if (form.dataset.id) row.id = form.dataset.id;
     row.comparables = [...form.querySelectorAll('.ws-comp')].map(section=>{
       const value = name=>section.querySelector(`[name="comparable${name}"]`).value.trim();
-      return {date:value('Date'),price:number(value('Price')),basis:value('Basis'),edition:value('Edition'),condition:value('Condition'),sourceUrl:value('Source')};
+      return {date:value('Date'),price:number(value('Price')),basis:value('Basis'),match:value('Match'),
+        edition:value('Edition'),condition:value('Condition'),sourceUrl:value('Source')};
     });
     return row;
   }
@@ -282,12 +338,18 @@
     else if (key==='budget') budget();
     else if (key==='compare') compare();
     else if (key==='close') fw().closeDialog();
-    else if (key==='new-comp') {
+    else if (key==='new-comp' || key==='remove-comp') {
       const comps=document.getElementById('ws-comps');
-      comps.insertAdjacentHTML('beforeend', compFields());
-      comps.lastElementChild.querySelector('input').focus();
+      const form=btn.form;
+      if (key==='new-comp') {
+        comps.insertAdjacentHTML('beforeend', compFields());
+        comps.lastElementChild.querySelector('input').focus();
+      } else {
+        btn.closest('.ws-comp').remove();
+      }
+      comps.closest('details').querySelector('summary').textContent = `Comparable price records (${comps.children.length})`;
+      document.getElementById('ws-scenarios').innerHTML=model(collectWork(form));
     }
-    else if (key==='remove-comp') btn.closest('.ws-comp').remove();
   });
 
   document.addEventListener('change', event=>{
