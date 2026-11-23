@@ -128,9 +128,44 @@
     }
   }
 
+  function impactReviewValues(event = {}) {
+    return ['impactLevel','impactTrack','impactReason','coverageOfId','source'].map(key => event[key] || '')
+      .concat(event.url || event.sourceUrl || '');
+  }
+
+  function validateEventReview(state, row) {
+    const {impactLevel = '', impactTrack = '', impactReason = '', coverageOfId = ''} = row;
+    requireValue(['','context','meaningful','major','career-defining','unclassified'].includes(impactLevel),
+      'Choose a valid milestone impact level.');
+    requireValue(['','institutional','gallery','critical','market','other'].includes(impactTrack),
+      'Choose a valid milestone impact track.');
+    requireValue(typeof impactReason === 'string', 'Enter an impact reason as text.');
+    if (impactLevel) {
+      requireValue(impactTrack, 'Choose a track for the reviewed impact.');
+      row.impactReason = textField(impactReason,'impact reason');
+      publicUrl(row.url || row.sourceUrl);
+    } else {
+      requireValue(!impactTrack && !impactReason, 'Choose an impact level to save a reviewed track or reason.');
+    }
+    requireValue(typeof coverageOfId === 'string', 'Choose a valid milestone for related coverage.');
+    if (row.coverageOfId) {
+      const original = ref(state,'events',row.coverageOfId);
+      requireValue(original.id !== row.id && original.artistId === row.artistId && !original.coverageOfId,
+        'Choose an original milestone for the same artist.');
+      requireValue(!row.impactLevel || row.impactTrack === 'critical', 'Coverage belongs on the critical track.');
+    }
+    requireValue(!state.events.some(e => e.coverageOfId === row.id && (row.coverageOfId || row.artistId !== e.artistId)),
+      'A milestone with linked coverage must remain an original event for the same artist.');
+  }
+
   function upsert(state, collection, payload) {
     const existing = payload.id ? ref(state,collection,payload.id) : null;
     const edits = {...payload};
+    if (collection === 'events' && Object.hasOwn(edits, 'expectedImpactReview')) {
+      requireValue(existing && same(edits.expectedImpactReview,impactReviewValues(existing)),
+        'This review changed. Reopen the milestone to review the latest version.');
+      delete edits.expectedImpactReview;
+    }
     if (collection === 'assessments') validateWorkEvidence(edits);
     if (collection === 'artists') {
       if (edits.expectedStatus != null) requireValue(existing?.status === edits.expectedStatus,
@@ -154,6 +189,7 @@
     } else if (row.artistId) ref(state,'artists',row.artistId);
     if (row.galleryId) ref(state,'galleries',row.galleryId);
     if (collection === 'events') {
+      validateEventReview(state,row);
       const date = row.date || '';
       requireValue(/^\d{4}(-\d{2}(-\d{2})?)?$/.test(date), 'Use a year, year-month, or full date (YYYY-MM-DD).');
       const full = (date + '-01-01').slice(0,10);
