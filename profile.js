@@ -34,6 +34,16 @@
         <tbody>${markers.map(m=>`<tr><th scope="row">${esc(m.name)}</th>${m.stages.map(s=>`<td>${esc(s)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
         <p class="panel-note">Five to nine years can be a transitional period. The two longer ranges meet at 20 years. The strength of the other evidence guides borderline cases.</p>
       </section>
+      <section class="panel prose pf-reading"><h2>Milestone impact</h2>
+        <p>What changed for the artist, who made the decision, and what did they commit to? Use the same criteria across cities and countries.</p>
+        <dl class="pf-markers">
+          <div><dt>Context</dt><dd>A listing, fair appearance or report of an existing show gives the artist visibility.</dd></div>
+          <div><dt>Meaningful</dt><dd>A first gallery solo, juried residency or curated institutional group show gives the artist a selective opportunity.</dd></div>
+          <div><dt>Major</dt><dd>A first institutional solo, permanent collection acquisition or representation that opens a new market demonstrates a substantial commitment.</dd></div>
+          <div><dt>Career-defining</dt><dd>A retrospective spanning several periods or a substantial survey organised by multiple independent institutions recognises a body of work.</dd></div>
+        </dl>
+        <p>Give particular attention to documented firsts and decisions by a second organisation. Link coverage back to the original event. An unclear commitment can stay unclassified until you find a source. Use comparable resales in the acquisition desk to assess financial outcomes.</p>
+      </section>
       <section class="pf-reading"><header class="section-head"><h2>Collecting criteria</h2></header>
       <div class="framework-grid">${topics.map(([title,body])=>`<article class="panel prose"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('')}</div></section>
       <section class="panel prose pf-reading"><h2>Five-year break-even</h2><p>What would you need to sell this work for to recover your full costs? In the acquisition desk, compare that figure with documented resales of the same edition or closely comparable works. Check the dates, condition and price basis. A publisher’s release price tells you what it cost to buy the work. A completed resale shows what a buyer paid for it later.</p><div class="actions"><button class="btn" type="button" data-view="desk">Open acquisition desk</button></div></section>`;

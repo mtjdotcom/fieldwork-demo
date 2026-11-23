@@ -562,6 +562,92 @@ small,
 .chart-tip[hidden] {
   display: none;
 }
+.chart-view {
+  align-self: flex-start;
+  margin-top: 12px;
+}
+.impact-plot {
+  flex: 0 1 auto;
+  min-height: 0;
+  max-height: 350px;
+  overflow-y: auto;
+  margin-block: 12px 5px;
+  font-size: 0.76rem;
+}
+.impact-years {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 23px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.impact-years span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+.impact-lane {
+  padding: 7px 0 4px;
+  border-bottom: 1px solid var(--line);
+}
+.impact-lane strong {
+  display: block;
+  font-weight: 600;
+}
+.impact-lane p {
+  color: var(--muted);
+  margin: 4px 0;
+}
+.impact-dates {
+  position: relative;
+  background: linear-gradient(var(--line), var(--line)) center 12px / calc(100% - 30px) 1px no-repeat;
+}
+.impact-point {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.impact-dot, .track-swatch {
+  display: inline-block;
+  width: var(--dot-size, 8px);
+  height: var(--dot-size, 8px);
+  background: var(--track-color, var(--muted));
+  border-radius: 50%;
+  flex: none;
+}
+.level-context { --dot-size: 6px; }
+.level-meaningful { --dot-size: 10px; }
+.level-major { --dot-size: 15px; }
+.level-career-defining { --dot-size: 20px; }
+.level-unclassified {
+  --dot-size: 9px;
+  background: var(--panel);
+  border: 2px dashed var(--track-color, var(--muted));
+}
+.impact-institutional { --track-color: #376c60; }
+.impact-gallery { --track-color: #b45835; }
+.impact-critical { --track-color: #785c8f; }
+.impact-market { --track-color: #396f9b; }
+.impact-other { --track-color: #67685c; }
+.impact-key > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.impact-key b { color: var(--ink); }
+.impact-key span { display: inline-flex; align-items: center; gap: 4px; }
+.impact-artist-check { color: var(--muted); }
 .focus-card {
   position: relative;
   min-height: 281px;

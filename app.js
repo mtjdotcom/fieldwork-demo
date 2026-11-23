@@ -10,6 +10,7 @@ let state = null,
 let chartIds = ["oscar-murillo", "issy-wood", "nnena-kalu"],
   hiddenSeries = new Set();
 let chartCategory = "All milestones";
+let chartView = "count";
 const chartCategories = [
   "All milestones",
   "Institution",
@@ -416,6 +417,7 @@ function chartPanel(width = 600) {
   const options = following().filter((a) => eventsFor(a.id).length);
   chartIds = chartIds.filter((id) => options.some((a) => a.id === id));
   if (!chartIds.length) chartIds = options.slice(0, 3).map((a) => a.id);
+  if (chartIds.length && chartIds.every(id => hiddenSeries.has(id))) hiddenSeries.delete(chartIds[0]);
   const series = chartIds.map((id, i) => ({
     id,
     name: artistName(id),
@@ -433,6 +435,24 @@ function chartPanel(width = 600) {
       ...series.flatMap((s) => s.events.map((e) => +e.date.slice(0, 4))),
     ),
     start = chartRange === "five" ? end - 4 : Math.min(earliest, end - 1);
+  const years = chartRange === "five"
+    ? [start, start + 1, start + 2, start + 3, end]
+    : [...new Set([start, Math.round(start + (end - start) / 3), Math.round(start + (end - start) * 2 / 3), end])];
+  const impact = chartView === "impact";
+  const subtitle = impact
+    ? (chartCategory === "All milestones" ? "Milestone impact by artist" : chartCategory + " · milestone impact")
+    : (chartCategory === "All milestones" ? "Cumulative documented milestones" : chartCategory + " · cumulative recorded events");
+  const plot = impact
+    ? impactPlot(series, start, end, years, width)
+    : countPlot(series, start, end, years, width);
+  return `<section class="panel chart-panel"><div class="panel-heading"><div><h2>Career trajectories</h2><p>${esc(subtitle)}</p></div><div class="segment" role="group" aria-label="Time range"><button data-range="five" class="${chartRange === "five" ? "active" : ""}" aria-pressed="${chartRange === "five"}">5Y</button><button data-range="all" class="${chartRange === "all" ? "active" : ""}" aria-pressed="${chartRange === "all"}">All</button></div></div>
+    <div class="chart-view segment" role="group" aria-label="Chart view">
+      <button data-chart-view="count" class="${impact ? "" : "active"}" aria-pressed="${!impact}">Event count</button>
+      <button data-chart-view="impact" class="${impact ? "active" : ""}" aria-pressed="${impact}">Impact</button>
+    </div>
+    ${plot}<div class="chart-legend">${series.map((s) => `<button class="legend-btn ${hiddenSeries.has(s.id) ? "off" : ""}" data-toggle-series="${esc(s.id)}" aria-pressed="${!hiddenSeries.has(s.id)}" style="--series:${s.color}">${impact ? `<span class="impact-artist-check" aria-hidden="true">${hiddenSeries.has(s.id) ? "○" : "✓"}</span>` : "<i></i>"}${esc(s.name)}</button>`).join("")}<button class="chart-manage" data-act="chartSelect" aria-label="Choose artists to compare">${icon("settings", 15)}</button></div></section>`;
+}
+function countPlot(series, start, end, years, width) {
   const endX = end + 1,
     yMax = Math.max(
       2,
@@ -440,18 +460,9 @@ function chartPanel(width = 600) {
         (s) => s.events.filter((e) => dateNum(e.date) < endX).length,
       ),
     );
-  const x = (t) => 31 + ((t - start) / (endX - start)) * (width - 50),
-    y = (n) => 140 - (n / yMax) * 126;
-  const ticks = [0, Math.round(yMax / 2), yMax],
-    years =
-      chartRange === "five"
-        ? [start, start + 1, start + 2, start + 3, end]
-        : [
-            start,
-            Math.round(start + (end - start) / 3),
-            Math.round(start + ((end - start) * 2) / 3),
-            end,
-          ];
+  const y = (n) => 140 - (n / yMax) * 126;
+  const ticks = [0, Math.round(yMax / 2), yMax];
+  const x = (t) => 31 + ((t - start) / (endX - start)) * (width - 50);
   const svg = series
     .map((s) => {
       if (hiddenSeries.has(s.id)) return "";
@@ -469,7 +480,37 @@ function chartPanel(width = 600) {
       return `<path d="${line} H${x(endX)}" fill="none" stroke="${s.color}" stroke-width="2.4" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>${marks}`;
     })
     .join("");
-  return `<section class="panel chart-panel"><div class="panel-heading"><div><h2>Career trajectories</h2><p>${chartCategory === "All milestones" ? "Cumulative documented milestones" : esc(chartCategory) + " · cumulative recorded events"}</p></div><div class="segment" aria-label="Time range"><button data-range="five" class="${chartRange === "five" ? "active" : ""}" aria-pressed="${chartRange === "five"}">5Y</button><button data-range="all" class="${chartRange === "all" ? "active" : ""}" aria-pressed="${chartRange === "all"}">All</button></div></div><div class="chart-box"><svg viewBox="0 0 ${width} 165" preserveAspectRatio="none" aria-label="Cumulative recorded events by year. Select a point to inspect its source." role="group">${ticks.map((n) => `<line x1="31" x2="${width - 19}" y1="${y(n)}" y2="${y(n)}" stroke="#e1e4da" stroke-dasharray="3 4"/><text x="15" y="${y(n) + 3}" text-anchor="middle" fill="#64705f" font-size="11">${n}</text>`).join("")}${[...new Set(years)].map((t) => `<text x="${x(t)}" y="158" font-size="11" text-anchor="middle" fill="#64705f">${t}</text>`).join("")}${svg}</svg><div class="chart-tip" hidden></div></div><div class="chart-legend">${series.map((s) => `<button class="legend-btn ${hiddenSeries.has(s.id) ? "off" : ""}" data-toggle-series="${esc(s.id)}" aria-pressed="${!hiddenSeries.has(s.id)}" style="--series:${s.color}"><i></i>${esc(s.name)}</button>`).join("")}<button class="chart-manage" data-act="chartSelect" aria-label="Choose artists to compare">${icon("settings", 15)}</button></div></section>`;
+  return `<div class="chart-box" data-layout-width="${width}"><svg viewBox="0 0 ${width} 165" preserveAspectRatio="none" aria-label="Cumulative recorded events by year. Select a point to inspect its source." role="group">${ticks.map((n) => `<line x1="31" x2="${width - 19}" y1="${y(n)}" y2="${y(n)}" stroke="#e1e4da" stroke-dasharray="3 4"/><text x="15" y="${y(n) + 3}" text-anchor="middle" fill="#64705f" font-size="11">${n}</text>`).join("")}${[...new Set(years)].map((t) => `<text x="${x(t)}" y="158" font-size="11" text-anchor="middle" fill="#64705f">${t}</text>`).join("")}${svg}</svg><div class="chart-tip" hidden></div></div>`;
+}
+
+function impactPlot(series, start, end, years, width) {
+  const { levels, tracks, classify } = window.MilestoneImpact;
+  const x = (date) => 18 + (date - start) / (end + 1 - start) * (width - 36);
+  const lanes = series.filter(s => !hiddenSeries.has(s.id)).map(artist => {
+    const lastPosition = [];
+    const markers = [];
+    for (const e of artist.events) {
+      const date = dateNum(e.date);
+      if (date < start || date >= end + 1) continue;
+      const at = x(date);
+      // Stagger nearby dates vertically, keeping each button on its true date.
+      let row = lastPosition.findIndex(previous => at - previous >= 26);
+      if (row < 0) row = lastPosition.length;
+      lastPosition[row] = at;
+      const {level, track} = classify(e, state.events);
+      const label = [artist.name, dateLabel(e.date), e.title, levels[level], tracks[track]].join(" · ");
+      markers.push(`<button type="button" class="chart-point impact-point impact-${esc(track)}" style="left:${at}px;top:${row * 26}px" data-event="${esc(e.id)}" data-tip="${esc(label)}" aria-label="${esc(label)}"><i class="impact-dot level-${esc(level)}" aria-hidden="true"></i></button>`);
+    }
+    return `<div class="impact-lane"><strong>${esc(artist.name)}</strong>
+      ${markers.length ? `<div class="impact-dates" style="height:${lastPosition.length * 26}px">${markers.join("")}</div>` : '<p>No milestones in this selection.</p>'}
+      </div>`;
+  });
+  const sizeKey = Object.entries(levels).map(([id,label]) => `<span><i class="impact-dot level-${esc(id)}" aria-hidden="true"></i>${esc(label)}</span>`).join("");
+  const trackKey = Object.entries(tracks).map(([id,label]) => `<span class="impact-${esc(id)}"><i class="track-swatch" aria-hidden="true"></i>${esc(label)}</span>`).join("");
+  return `<div class="chart-box impact-plot" data-layout-width="${width}" role="group" aria-label="Dated milestones by artist">
+    <div class="impact-years">${years.map(year => `<span style="left:${x(year)}px">${year}</span>`).join("")}</div>
+    ${lanes.join("")}<div class="chart-tip" hidden></div></div>
+    <div class="impact-key"><div><b>Impact</b>${sizeKey}</div><div><b>Track</b>${trackKey}</div></div>`;
 }
 function eventRow(e) {
   const name = artistName(e.artistId);
@@ -550,7 +591,7 @@ function fitOverviewChart() {
   const width = Math.round(plot.clientWidth);
   if (
     width > 0 &&
-    Math.abs(plot.querySelector("svg").viewBox.baseVal.width - width) > 1
+    Math.abs(Number(plot.dataset.layoutWidth) - width) > 1
   ) {
     plot.closest(".chart-panel").outerHTML = chartPanel(width);
   }
@@ -561,13 +602,89 @@ dashboardResize.observe(app);
 function eventDialog(id) {
   const e = state.events.find((v) => v.id === id);
   if (!e) return;
+  const impact = MilestoneImpact.classify(e, state.events);
+  const original = state.events.find(row => row.id === e.coverageOfId);
+  const related = state.events.filter(row => row.coverageOfId === e.id);
+  const milestoneLink = row => `<button class="text-btn" data-event="${esc(row.id)}">${esc(row.title)}</button>`;
   openDialog(
     e.title,
-    `<div class="row wrap"><span class="pill">${esc(e.subtype || e.type)}</span><span class="small muted">${esc(dateLabel(e.date))}</span></div><p style="margin:13px 0">${esc(e.detail || e.notes || "No additional notes.")}</p>${link(e.url || e.sourceUrl, e.source || "Open evidence")}<div class="actions"><button class="btn" data-artist="${esc(e.artistId)}">View ${esc(artistName(e.artistId))}</button></div>`,
+    `<div class="row wrap"><span class="pill">${esc(e.subtype || e.type)}</span><span class="small muted">${esc(dateLabel(e.date))}</span></div>
+    <p style="margin:13px 0">${esc(e.detail || e.notes || "No additional notes.")}</p>
+    <section class="prose"><h3>${esc(MilestoneImpact.levels[impact.level])} · ${esc(MilestoneImpact.tracks[impact.track])}</h3>
+    <p>${esc(impact.reason)}</p><small class="muted">${e.impactLevel ? "Reviewed impact" : "Rubric classification"}</small></section>
+    <p>${link(e.url || e.sourceUrl, e.source || "Open evidence") || "Evidence link unrecorded"}</p>
+    ${original ? `<p>Coverage of ${milestoneLink(original)}</p>` : ""}
+    ${related.length ? `<h4>Related coverage</h4><ul>${related.map(row=>`<li>${milestoneLink(row)}</li>`).join("")}</ul>` : ""}
+    <div class="actions"><button class="btn" id="review-impact">Review impact</button><button class="btn" data-artist="${esc(e.artistId)}">View ${esc(artistName(e.artistId))}</button></div>`,
   );
+  dialog.querySelector("#review-impact").onclick = () => reviewImpact(e);
 }
 const fld = (name, title, control, full = false) =>
   `<label class="field ${full ? "span-full" : ""}"><span>${title}</span>${control}</label>`;
+
+function impactFields(event = {}) {
+  const options = (labels, selected) => Object.entries(labels).map(([id, label]) =>
+    `<option value="${esc(id)}"${id === selected ? " selected" : ""}>${esc(label)}</option>`).join("");
+  return `${fld("impactLevel", "Impact level", `<select name="impactLevel"><option value="">Use the rubric</option>${options(MilestoneImpact.levels,event.impactLevel)}</select>`)}
+    ${fld("impactTrack", "Impact track", `<select name="impactTrack"><option value="">Select a track</option>${options(MilestoneImpact.tracks,event.impactTrack)}</select>`)}
+    ${fld("impactReason", "Why this classification?", `<textarea name="impactReason" maxlength="500" placeholder="What did the source confirm, and who made the commitment?">${esc(event.impactReason)}</textarea>`,true)}
+    ${fld("coverageOfId", "Coverage of another milestone", '<select name="coverageOfId"></select>', true)}`;
+}
+
+function bindImpactFields(form, event = {}) {
+  const {impactLevel, impactTrack, impactReason, coverageOfId, artistId} = form.elements;
+  function sync() {
+    const manual = Boolean(impactLevel.value);
+    impactTrack.disabled = !manual;
+    impactReason.disabled = !manual;
+    impactTrack.required = manual;
+    impactReason.required = manual;
+    for (const option of impactTrack.options) {
+      option.disabled = Boolean(coverageOfId.value) && option.value !== "critical";
+    }
+    if (coverageOfId.value) impactTrack.value = "critical";
+  }
+  function updateCoverage() {
+    const artist = artistId?.value || event.artistId;
+    const hasCoverage = event.id && state.events.some(row => row.coverageOfId === event.id);
+    const candidates = hasCoverage ? [] : eventsFor(artist).filter(row => row.id !== event.id && !row.coverageOfId);
+    coverageOfId.innerHTML = '<option value="">Independent milestone</option>' + candidates.map(row =>
+      `<option value="${esc(row.id)}"${row.id === event.coverageOfId ? " selected" : ""}>${esc(dateLabel(row.date))} · ${esc(row.title)}</option>`).join("");
+    coverageOfId.disabled = candidates.length === 0;
+    sync();
+  }
+  updateCoverage();
+  artistId?.addEventListener("change", updateCoverage);
+  impactLevel.onchange = coverageOfId.onchange = sync;
+}
+
+function reviewImpact(event) {
+  const original = [event.impactLevel, event.impactTrack, event.impactReason, event.coverageOfId,
+    event.source, event.url || event.sourceUrl].map(value => value || "");
+  openDialog("Review milestone impact",
+    `<form class="form-grid"><p class="span-full"><strong>${esc(event.title)}</strong> · ${esc(dateLabel(event.date))}</p>
+    ${impactFields(event)}
+    ${fld("source", "Source name", `<input name="source" value="${esc(event.source)}">`)}
+    ${fld("url", "Evidence URL", `<input name="url" type="url" value="${esc(event.url || event.sourceUrl)}">`)}
+    <div class="span-full actions"><button type="submit" class="btn primary">Save review</button><button type="button" class="btn" data-event="${esc(event.id)}">Cancel</button></div></form>`);
+  const form = dialog.querySelector("form");
+  bindImpactFields(form, event);
+  form.onsubmit = async ev => {
+    ev.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    const submit = form.querySelector("[type=submit]");
+    submit.disabled = true;
+    try {
+      await post("events", {id:event.id, impactTrack:"", impactReason:"", coverageOfId:"",
+        ...data, sourceUrl:data.url, expectedImpactReview:original});
+      render();
+      eventDialog(event.id);
+      toast("Milestone review saved.");
+    } catch {
+      submit.disabled = false;
+    }
+  };
+}
 function addArtist() {
   openDialog(
     "Track an artist",
@@ -609,9 +726,10 @@ function addEvent(artistId) {
   }
   openDialog(
     "Add a career milestone",
-    `<form id="add-event" class="form-grid">${fld("artist", "Artist", `<select name="artistId">${artists.map((a) => `<option value="${esc(a.id)}" ${a.id === artistId ? "selected" : ""}>${esc(a.name)}</option>`).join("")}</select>`)}${fld("type", "Milestone type", `<select name="type">${[...Object.keys(typeIcon)].map((t) => `<option>${t}</option>`).join("")}</select>`)}${fld("galleryId", "Gallery involved", `<select name="galleryId"><option value="">None recorded</option>${state.galleries.map((g) => `<option value="${esc(g.id)}">${esc(g.name)}</option>`).join("")}</select>`)}<label class="field" id="institution-field" hidden>Institutional evidence<select name="subtype"><option value="">Unspecified</option>${["Museum solo exhibition", "Museum group show", "Public collection acquisition", "Private foundation holding", "Art centre exhibition", "Biennial presentation", "Public commission", "Retrospective"].map((t) => `<option>${t}</option>`).join("")}</select></label>${fld("title", "Milestone", '<input name="title" required placeholder="e.g. First museum solo" maxlength="250">', true)}${fld("date", "Event date", '<input name="date" required pattern="[0-9]{4}(-[0-9]{2}){0,2}" placeholder="YYYY, YYYY-MM or YYYY-MM-DD">')}${fld("source", "Source name", '<input name="source" required placeholder="Museum, gallery or publication">')}${fld("url", "Evidence URL", '<input name="url" type="url" required placeholder="https://…">', true)}${fld("detail", "What does the source establish?", '<textarea name="detail"></textarea>', true)}<label class="field" id="origin-field" hidden>Earlier gallery<select name="originGalleryId"><option value="">Select if documented</option>${state.galleries.map((g) => `<option value="${esc(g.id)}">${esc(g.name)}</option>`).join("")}</select></label><label class="field" id="dest-field" hidden>Representing gallery<select name="destinationGallery"><option value="">Other / unspecified</option>${["Gagosian", "David Zwirner", "Hauser & Wirth", "Pace"].map((g) => `<option>${g}</option>`).join("")}</select></label><div class="span-full"><button class="btn primary">Save milestone</button></div></form>`,
+    `<form id="add-event" class="form-grid">${fld("artist", "Artist", `<select name="artistId">${artists.map((a) => `<option value="${esc(a.id)}" ${a.id === artistId ? "selected" : ""}>${esc(a.name)}</option>`).join("")}</select>`)}${fld("type", "Milestone type", `<select name="type">${[...Object.keys(typeIcon)].map((t) => `<option>${t}</option>`).join("")}</select>`)}${fld("galleryId", "Gallery involved", `<select name="galleryId"><option value="">None recorded</option>${state.galleries.map((g) => `<option value="${esc(g.id)}">${esc(g.name)}</option>`).join("")}</select>`)}<label class="field" id="institution-field" hidden>Institutional evidence<select name="subtype"><option value="">Unspecified</option>${["Museum solo exhibition", "Museum group show", "Public collection acquisition", "Private foundation holding", "Art centre exhibition", "Biennial presentation", "Public commission", "Retrospective"].map((t) => `<option>${t}</option>`).join("")}</select></label>${fld("title", "Milestone", '<input name="title" required placeholder="e.g. First museum solo" maxlength="250">', true)}${fld("date", "Event date", '<input name="date" required pattern="[0-9]{4}(-[0-9]{2}){0,2}" placeholder="YYYY, YYYY-MM or YYYY-MM-DD">')}${fld("source", "Source name", '<input name="source" required placeholder="Museum, gallery or publication">')}${fld("url", "Evidence URL", '<input name="url" type="url" required placeholder="https://…">', true)}${fld("detail", "What does the source establish?", '<textarea name="detail"></textarea>', true)}<label class="field" id="origin-field" hidden>Earlier gallery<select name="originGalleryId"><option value="">Select if documented</option>${state.galleries.map((g) => `<option value="${esc(g.id)}">${esc(g.name)}</option>`).join("")}</select></label><label class="field" id="dest-field" hidden>Representing gallery<select name="destinationGallery"><option value="">Other / unspecified</option>${["Gagosian", "David Zwirner", "Hauser & Wirth", "Pace"].map((g) => `<option>${g}</option>`).join("")}</select></label><details class="span-full"><summary>Impact and related coverage</summary><div class="form-grid">${impactFields()}</div></details><div class="span-full"><button class="btn primary">Save milestone</button></div></form>`,
   );
   const f = dialog.querySelector("form");
+  bindImpactFields(f);
   const toggle = () => {
     f.querySelector("#institution-field").hidden =
       f.elements.type.value !== "Institution";
@@ -649,7 +767,7 @@ function chartSelect() {
   const opts = following().filter((a) => eventsFor(a.id).length);
   openDialog(
     "Compare artist trajectories",
-    `<form id="chart-choose"><p class="muted small">Choose up to six artists. Each step marks a recorded event. Coverage varies by artist.</p><label class="field" style="margin-top:12px">Milestones to plot<select name="category">${chartCategories.map((c) => `<option ${c === chartCategory ? "selected" : ""}>${esc(c)}</option>`).join("")}</select></label><div class="detail-section" style="margin-top:14px">${opts.map((a) => `<label class="checkline"><input type="checkbox" name="id" value="${esc(a.id)}" ${chartIds.includes(a.id) ? "checked" : ""}> ${esc(a.name)}</label>`).join("")}</div><button class="btn primary">Apply selection</button></form>`,
+    `<form id="chart-choose"><p class="muted small">Choose up to six artists. Coverage varies by artist.</p><label class="field" style="margin-top:12px">Milestones to plot<select name="category">${chartCategories.map((c) => `<option ${c === chartCategory ? "selected" : ""}>${esc(c)}</option>`).join("")}</select></label><div class="detail-section" style="margin-top:14px">${opts.map((a) => `<label class="checkline"><input type="checkbox" name="id" value="${esc(a.id)}" ${chartIds.includes(a.id) ? "checked" : ""}> ${esc(a.name)}</label>`).join("")}</div><button class="btn primary">Apply selection</button></form>`,
   );
   dialog.querySelector("form").onsubmit = (e) => {
     e.preventDefault();
@@ -744,7 +862,7 @@ const acts = {
 };
 document.addEventListener("click", async (e) => {
   const el = e.target.closest(
-    "[data-view],[data-act],[data-artist],[data-gallery],[data-event],[data-range],[data-status],[data-toggle-series],[data-work]",
+    "[data-view],[data-act],[data-artist],[data-gallery],[data-event],[data-range],[data-chart-view],[data-status],[data-toggle-series],[data-work]",
   );
   if (!el) return;
   const d = el.dataset;
@@ -769,6 +887,10 @@ document.addEventListener("click", async (e) => {
     eventDialog(d.event);
   } else if (d.work) {
     Worksheet.add(d.work);
+  } else if (d.chartView) {
+    chartView = d.chartView;
+    render();
+    document.querySelector(`[data-chart-view="${chartView}"]`)?.focus({preventScroll:true});
   } else if (d.range) {
     chartRange = d.range;
     render();
@@ -811,7 +933,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") document.body.classList.remove("navopen");
   if (
     (e.key === "Enter" || e.key === " ") &&
-    e.target.classList.contains("chart-point")
+    e.target.matches("svg .chart-point")
   ) {
     e.preventDefault();
     eventDialog(e.target.dataset.event);
@@ -832,7 +954,7 @@ function chartTip(e) {
   tip.hidden = false;
   tip.style.left =
     Math.max(0, Math.min(a.left - b.left, b.width - tip.offsetWidth)) + "px";
-  tip.style.top = Math.max(0, a.top - b.top - tip.offsetHeight - 6) + "px";
+  tip.style.top = box.scrollTop + Math.max(0, a.top - b.top - tip.offsetHeight - 6) + "px";
 }
 document.addEventListener("pointerover", chartTip);
 document.addEventListener("focusin", chartTip);
