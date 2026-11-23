@@ -108,9 +108,30 @@
     return name.normalize('NFKD').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
   }
 
+  function validateWorkEvidence(edits) {
+    for (const key of ['documentationOrigin','documentationCondition','secondLookNotes']) {
+      requireValue(!Object.hasOwn(edits,key) || typeof edits[key] === 'string', key + ' must be text.');
+    }
+    if (Object.hasOwn(edits,'secondLookDate') && edits.secondLookDate !== '') {
+      const date = edits.secondLookDate;
+      const parsed = new Date(date + 'T00:00:00Z');
+      requireValue(typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date) &&
+        !date.startsWith('0000') && Number.isFinite(parsed.getTime()) && parsed.toISOString().startsWith(date),
+        'Enter a valid second-look date (YYYY-MM-DD).');
+    }
+    if (Object.hasOwn(edits,'comparables')) {
+      requireValue(Array.isArray(edits.comparables), 'Provide comparable sales as a list.');
+      for (const sale of edits.comparables) {
+        requireValue(isObject(sale) && (!Object.hasOwn(sale,'match') || ['','close','context'].includes(sale.match)),
+          'Choose a valid match for each comparable sale.');
+      }
+    }
+  }
+
   function upsert(state, collection, payload) {
     const existing = payload.id ? ref(state,collection,payload.id) : null;
     const edits = {...payload};
+    if (collection === 'assessments') validateWorkEvidence(edits);
     if (collection === 'artists') {
       if (edits.expectedStatus != null) requireValue(existing?.status === edits.expectedStatus,
         'This artist’s status changed. Check their current status before choosing again.');

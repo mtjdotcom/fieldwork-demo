@@ -1880,8 +1880,31 @@
       "imageCredit": "Original Fieldwork demo artwork",
       "marketType": "Fictional studio release",
       "notes": "Fictional example for testing the worksheet. All prices, costs and transactions are sample inputs.",
-      "comparables": [],
-      "hang": "Maybe"
+      "comparables": [
+        {
+          "date": "2025-09-18",
+          "price": 440,
+          "basis": "Hammer price",
+          "edition": "Standard edition of 30, copy 8/30",
+          "condition": "Unframed, clean margins",
+          "sourceUrl": "https://github.com/mtjdotcom/fieldwork-demo/blob/main/README.md#sample-lot-12",
+          "match": "close"
+        },
+        {
+          "date": "2026-04-09",
+          "price": 510,
+          "basis": "Hammer price",
+          "edition": "Standard edition of 30, copy 17/30",
+          "condition": "Unframed, excellent condition",
+          "sourceUrl": "https://github.com/mtjdotcom/fieldwork-demo/blob/main/README.md#sample-lot-31",
+          "match": "close"
+        }
+      ],
+      "hang": "Maybe",
+      "documentationOrigin": "Studio invoice identifies the standard edition of 30. Request a photograph of the edition number on this copy.",
+      "documentationCondition": "The studio supplied front and back photographs. The lower margin is outside the frame of the photograph.",
+      "secondLookDate": "2026-10-11",
+      "secondLookNotes": "The smaller blue marks stand out in the close-up. Measure the wall beside the bookcase before choosing a frame."
     },
     {
       "id": "sample-folded-light",
@@ -1906,7 +1929,10 @@
       "marketType": "Fictional studio release",
       "notes": "Fictional example for testing the worksheet. All prices, costs and transactions are sample inputs.",
       "comparables": [],
-      "hang": "Yes"
+      "hang": "Yes",
+      "documentationOrigin": "Studio invoice identifies copy 4/30. The edition number is visible on the reverse.",
+      "documentationCondition": "Inspected the sheet in person before framing. Margins were clean.",
+      "secondLookNotes": ""
     }
   ],
   "reviews": [
