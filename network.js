@@ -12,6 +12,10 @@
   const empty = message => `<div class="empty">${esc(message)}</div>`;
   const sum = (n, singular, plural = singular + 's') => `${n} ${n === 1 ? singular : plural}`;
   const filters = {city: '', tier: '', visit: false, gallerySearch: '', sourceKind: '', sourceStatus: '', sourceSearch: ''};
+  const kindLabels = {gallery:'Gallery', curator:'Curator', foundation:'Foundation', institution:'Arts institution', prize:'Prize', museum:'Museum', fair:'Art fair'};
+  const directoryOptions = [['gallery','Galleries'],['curator','Curators'],['institution','Institutions and programmes']];
+  const params = new URLSearchParams(location.search);
+  let directory = directoryOptions.find(([key]) => key === params.get('directory'))?.[0] || 'gallery';
   const statusNames = {unchecked: 'Unchecked', checking: 'Checking', ok: 'Checked', changed: 'Changed', blocked: 'Restricted', error: 'Error'};
   let timer;
   let polling = false;
@@ -27,6 +31,89 @@
       if (['http:', 'https:'].includes(new URL(url).protocol)) return fw().link(url, text);
     } catch {}
     return '';
+  }
+
+  const profiles = () => state().presenterProfiles || [];
+  const directoryOf = kind => kind === 'gallery' || kind === 'curator' ? kind : 'institution';
+  const profileLocation = profile => [profile.city, profile.country].filter(Boolean).join(' · ');
+  const selectedTrackedGallery = () => state().galleries.find(gallery => gallery.id === params.get('gallery'));
+  const selectedPresenter = () => params.has('gallery') ? selectedTrackedGallery()
+    : profiles().find(profile => profile.id === params.get('presenter'));
+  const discoveryOrigin = value => value === 'discoveries' || value === 'gallery-pilot';
+
+  function presenterHref(id, {round, card, origin, artist, kind} = {}) {
+    const query = new URLSearchParams();
+    if (kind === 'gallery') {
+      const profile = profiles().find(p => p.kind === 'gallery' && (p.id === id || p.galleryId === id));
+      query.set(profile ? 'presenter' : 'gallery', profile?.id || id);
+    } else {
+      query.set('presenter', id);
+    }
+    if (discoveryOrigin(origin) && artist) {
+      query.set('from', origin);
+      query.set('artist', artist);
+    } else if (round && card) {
+      query.set('round', round);
+      query.set('card', card);
+    }
+    return '?' + query + '#presenter';
+  }
+
+  function profileLink(profile, label = profile.name, cls = 'name-btn') {
+    return `<a class="${cls}" href="${esc(presenterHref(profile.id))}">${esc(label)}</a>`;
+  }
+
+  function profileSources(sources) {
+    const links = (sources || []).map(source => sourceLink(source.url, source.label)).filter(Boolean);
+    return links.length ? `<div class="row wrap small">${links.join('')}</div>` : '';
+  }
+
+  function presenterPage() {
+    const profile = selectedPresenter();
+    const origin = params.get('from');
+    const artist = discoveryOrigin(origin) && state().artists.find(item => item.id === params.get('artist'));
+    const card = params.get('card'), round = params.get('round');
+    const artistId = artist?.id || card;
+    const comparisonDate = card && profile?.records?.find(record => record.artistId === card)?.asOf;
+    let back = '';
+    if (discoveryOrigin(origin) && params.get('artist')) {
+      const returnQuery = new URLSearchParams({artist:params.get('artist')});
+      back = `<a class="btn" href="?${esc(returnQuery)}#${origin}">${icon('left',14)}${origin === 'discoveries' ? 'Back to discovery inbox' : 'Back to gallery pilot'}</a>`;
+    } else if (card && /^[1-9]\d{0,3}$/.test(round || '')) {
+      back = `<a class="btn" href="?${esc(new URLSearchParams({round, card}))}#why-comparison">${icon('left',14)}Back to comparison</a>`;
+    }
+    const section = directoryOf(profile?.kind || 'gallery');
+    const network = `<a class="text-btn" href="?directory=${section}#galleries">Gallery network</a>`;
+    const navigation = `<div class="toolbar">${back}${network}</div>`;
+    if (!profile) return navigation + empty('This profile is unavailable in this workspace.');
+    const cutoff = origin === 'gallery-pilot' ? artist?.discoveryPilot?.observedThrough
+      : artist?.discoveryNote?.asOf || comparisonDate;
+    const cases = (profile.records || []).filter(record => !cutoff || record.asOf <= cutoff)
+      .sort((a,b) => Number(b.artistId === artistId) - Number(a.artistId === artistId) || b.asOf.localeCompare(a.asOf));
+    const galleryId = params.has('gallery') ? profile.id : profile.galleryId;
+    const connection = artist && galleryId && !cases.some(record => record.artistId === artist.id)
+      ? discoveryConnection(artist, galleryId) : '';
+    if (params.has('gallery')) {
+      return `${navigation}<article class="panel gallery-card">${connection}${galleryDetails(profile)}</article>`;
+    }
+    return `${navigation}<article class="panel gallery-card prose"><p>${esc(profile.description)}</p>
+      ${profileSources(profile.sources)}
+      ${profile.url ? `<p>${sourceLink(profile.url,'Official website')}</p>` : ''}
+      ${connection}
+      ${cases.map(record => `<section class="detail-section"><div class="section-head wrap">
+        <h2>${esc(record.artistName)}</h2><span class="small muted">As of ${esc(fw().dateLabel(record.asOf))}</span></div>
+        <p>${esc(record.text)}</p>${profileSources(record.sources)}</section>`).join('')}
+      ${profile.galleryId && state().galleries.some(g => g.id === profile.galleryId)
+        ? `<footer>${action('gallery','Open tracked gallery record',profile.galleryId,'text-btn')}</footer>` : ''}</article>`;
+  }
+
+  function discoveryConnection(artist, galleryId) {
+    const source = state().sources.find(s => s.id === artist.discoverySourceId && s.galleryId === galleryId);
+    const discovery = artist.discoveries?.find(d => d.galleryId === galleryId || (source && d.sourceId === source.id));
+    if (!discovery && !source && artist.galleryId !== galleryId) return '';
+    const link = sourceLink(discovery?.url || source?.url,'Discovery source');
+    return `<section class="detail-section"><h2>${esc(artist.name)}</h2>
+      <p>Fieldwork links this gallery to the artist’s discovery record.</p>${link}</section>`;
   }
 
   function galleryArtists(id) {
@@ -46,44 +133,82 @@
     return state().events.filter(e => e.originGalleryId === id && e.megaGallery && e.type === 'Representation');
   }
 
+  function directoryProfiles() {
+    const tracked = new Set(state().galleries.map(gallery => gallery.id));
+    return profiles().filter(profile => directoryOf(profile.kind) === directory &&
+      !(profile.galleryId && tracked.has(profile.galleryId)));
+  }
+
+  function directoryTitle() {
+    if (directory === 'gallery' || !directoryProfiles().length) return '';
+    return directoryOptions.find(([id]) => directory === id)?.[1] || '';
+  }
+
+  function profileCard(profile) {
+    const label = profile.kind === 'gallery' ? 'Research profile' : kindLabels[profile.kind];
+    return `<article class="panel gallery-card">
+      <div class="spread wrap"><span class="loc">${esc(profileLocation(profile))}</span><span class="small muted">${esc(label)}</span></div>
+      <h3>${profileLink(profile)}</h3><p class="muted">${esc(profile.description)}</p>
+      <footer>${profileLink(profile,'View profile','text-btn')}</footer></article>`;
+  }
+
   function galleryResults() {
-    const rows = state().galleries.filter(g =>
+    const query = filters.gallerySearch.trim().toLowerCase();
+    const rows = directory === 'gallery' ? state().galleries.filter(g =>
       (!filters.visit || (g.visitable && g.city === 'London')) &&
       (!filters.city || g.city === filters.city) && (!filters.tier || (g.tierAssessment?.tier || 'Unrated') === filters.tier) &&
-      [g.name,g.city,g.area,g.country].join(' ').toLowerCase().includes(filters.gallerySearch.toLowerCase()));
-    return `<p class="result-count">${sum(rows.length,'gallery','galleries')}</p>
+      [g.name,g.city,g.area,g.country].join(' ').toLowerCase().includes(query)) : [];
+    const research = directoryProfiles().filter(profile =>
+      (directory !== 'gallery' || (!filters.visit && !filters.tier)) &&
+      (!filters.city || profile.city === filters.city) &&
+      [profile.name, profile.city, profile.country, kindLabels[profile.kind]].join(' ').toLowerCase().includes(query));
+    const count = rows.length + research.length;
+    const noun = directory === 'gallery' ? ['gallery','galleries'] : directory === 'curator' ? ['curator','curators'] : ['profile','profiles'];
+    return `<p class="result-count">${sum(count,...noun)}</p>
       <div class="grid-cards">${rows.map(g => {
         const tracked = galleryArtists(g.id).filter(a => a.status === 'watching');
         const transitions = graduationEvents(g.id).length;
+        const profile = profiles().find(profile => profile.galleryId === g.id);
         return `<article class="panel gallery-card"><div class="spread wrap"><span class="loc">${icon('pin',14)}${esc([g.area,g.city].filter(Boolean).join(' · ') || g.country || 'Location unrecorded')}</span>
           ${GalleryTiers.pill(g.tierAssessment?.tier)}</div>
-          <h3>${action('gallery',esc(g.name),g.id,'name-btn')}</h3>
+          <h3>${profile ? profileLink(profile, g.name) : action('gallery',esc(g.name),g.id,'name-btn')}</h3>
           ${GalleryTiers.cardSummary(g.tierAssessment)}
           ${g.note ? `<p class="muted">${esc(g.note)}</p>` : ''}
           <footer><span>${sum(tracked.length,'watched artist')}${transitions ? ' · '+sum(transitions,'transition') : ''}</span>
-            ${action('gallery','View gallery',g.id,'text-btn')}</footer></article>`;
-      }).join('')}</div>${rows.length ? '' : empty('No galleries match these filters.')}`;
+            ${profile ? profileLink(profile,'View gallery','text-btn') : action('gallery','View gallery',g.id,'text-btn')}</footer></article>`;
+      }).join('')}${research.map(profileCard).join('')}</div>${count ? '' : empty('No matches for these filters.')}`;
   }
 
   function galleries() {
-    const unique = key => [...new Set(state().galleries.map(g => g[key]).filter(Boolean))].sort();
-    return `<div class="toolbar">${searchFilter('gallerySearch','Search galleries')}${selectFilter('city','All cities',unique('city'))}
-      ${selectFilter('tier','All tiers',GalleryTiers.levels)}<label class="checkline"><input data-network-filter="visit" type="checkbox" ${filters.visit ? 'checked' : ''}> London visits</label>
+    const options = directoryOptions.filter(([key]) => key === 'gallery' || profiles().some(p => directoryOf(p.kind) === key));
+    if (!options.some(([key]) => key === directory)) directory = 'gallery';
+    const pool = directory === 'gallery' ? [...state().galleries,...directoryProfiles()] : directoryProfiles();
+    const cities = [...new Set(pool.map(g => g.city).filter(Boolean))].sort();
+    const filterLabel = directory === 'gallery' ? 'Search galleries' : directory === 'curator' ? 'Search curators' : 'Search institutions and programmes';
+    return `<div class="toolbar">${options.length > 1 ? `<select data-network-directory aria-label="Network directory">${choices(options, directory)}</select>` : ''}
+      ${searchFilter('gallerySearch',filterLabel)}${selectFilter('city','All cities',cities)}
+      ${directory === 'gallery' ? `${selectFilter('tier','All tiers',GalleryTiers.levels)}<label class="checkline"><input data-network-filter="visit" type="checkbox" ${filters.visit ? 'checked' : ''}> London visits</label>
       <button type="button" class="text-btn" data-tier-action="method">How tiers work</button>
-      <a class="text-btn" href="./gallery-programmes-2018-2020.html">2018–2020 programme audit</a></div>
+      <a class="text-btn" href="./gallery-programmes-2018-2020.html">2018–2020 programme audit</a>` : ''}</div>
       <div id="network-gallery-results">${galleryResults()}</div>`;
   }
 
   function showGallery(id) {
     const gallery = state().galleries.find(g => g.id === id);
-    if (!gallery) return;
+    if (gallery) fw().openDialog(gallery.name, galleryDetails(gallery));
+  }
+
+  function galleryDetails(gallery) {
+    const id = gallery.id;
     const artists = galleryArtists(id);
     const transitions = graduationEvents(id);
     const sources = state().sources.filter(s => s.galleryId === id);
-    fw().openDialog(gallery.name, `<div class="row wrap"><span class="loc">${icon('pin',15)} ${esc([gallery.area,gallery.city,gallery.country].filter(Boolean).join(' · '))}</span>
+    const profile = profiles().find(profile => profile.galleryId === id);
+    return `<div class="row wrap"><span class="loc">${icon('pin',15)} ${esc([gallery.area,gallery.city,gallery.country].filter(Boolean).join(' · '))}</span>
       ${GalleryTiers.pill(gallery.tierAssessment?.tier)}</div>
       ${gallery.tier ? `<p class="small muted">Original shortlist label · ${esc(gallery.tier)}${gallery.tier === 'Niche' ? ' (programme focus)' : ''}${gallery.tierSource ? ' · '+esc(gallery.tierSource) : ''}</p>` : ''}
-      ${gallery.note ? `<p class="section-space">${esc(gallery.note)}</p>` : ''}<p class="source-foot">${sourceLink(gallery.url,'Gallery website')}</p>
+      ${gallery.note ? `<p class="section-space">${esc(gallery.note)}</p>` : ''}<div class="row wrap source-foot">${sourceLink(gallery.url,'Gallery website')}
+        ${profile ? profileLink(profile,'Gallery profile','text-btn') : ''}</div>
       ${GalleryTiers.panel(gallery)}
       <section class="detail-section"><h3>Linked artists</h3>${artists.length ? artists.map(a =>
         `<div class="source-row"><div class="source-copy">${action('artist',esc(a.name),a.id,'name-btn')}<span class="small">${esc(a.status === 'discovered' ? 'Discovered' : a.status === 'archived' ? 'Archived' : 'Watchlist')}</span></div>
@@ -93,7 +218,7 @@
           <span class="small">${esc(e.date)} · Representation</span></div>${sourceLink(e.url || e.sourceUrl,'Evidence')}</div>`).join('') : '<p class="small muted">No documented transition to a major gallery in this record.</p>'}
       </section>
       <section class="detail-section"><div class="section-head"><h3>Monitored sources</h3>${action('add-source','Add source',id,'text-btn')}</div>
-        ${sources.length ? sources.map(s => sourceRow(s,true)).join('') : empty('Add a gallery roster or exhibition programme to monitor.')}</section>`);
+        ${sources.length ? sources.map(s => sourceRow(s,true)).join('') : empty('Add a gallery roster or exhibition programme to monitor.')}</section>`;
   }
 
   function field(label, control, full = false) {
@@ -252,10 +377,10 @@
     const key = target.dataset.networkFilter;
     if (!(key in filters)) return;
     filters[key] = target.type === 'checkbox' ? target.checked : target.value;
-    if (key === 'visit' && filters.visit && filters.city && filters.city !== 'London') {
+    if (directory === 'gallery' && key === 'visit' && filters.visit && filters.city && filters.city !== 'London') {
       filters.city = ''; document.querySelector('[data-network-filter="city"]').value = '';
     }
-    if (key === 'city' && filters.city && filters.city !== 'London' && filters.visit) {
+    if (directory === 'gallery' && key === 'city' && filters.city && filters.city !== 'London' && filters.visit) {
       filters.visit = false; document.querySelector('[data-network-filter="visit"]').checked = false;
     }
     const root = document.querySelector(key.startsWith('source') ? '#network-source-results' : '#network-gallery-results');
@@ -264,6 +389,11 @@
 
   document.addEventListener('input',event => { if (event.target.matches('input[type="search"][data-network-filter]')) filterChange(event.target); });
   document.addEventListener('change',event => {
+    if (event.target.matches('[data-network-directory]')) {
+      directory = event.target.value;
+      filters.city = filters.gallerySearch = '';
+      fw().refresh();
+    }
     if (event.target.matches('select[data-network-filter],input[type="checkbox"][data-network-filter]')) {
       filterChange(event.target);
     }
@@ -296,5 +426,5 @@
     finally { submit.disabled = false; }
   });
 
-  window.Network = {galleries,sources,showGallery,addGallery,addSource,settings,check};
+  window.Network = {galleries,sources,showGallery,addGallery,addSource,settings,check,presenterHref,presenterPage,selectedPresenter,kindLabels,directoryTitle};
 })();

@@ -38,6 +38,16 @@ const views = {
     "Discovery inbox",
     "Compare work from gallery programmes. Open an image for its caption and source.",
   ],
+  "gallery-pilot": [
+    "Gallery pilot",
+    "Gallery discovery pilot",
+    "Fieldwork’s AI-written notes explain what had changed by the opening of each show. Revisit keeps an artist in Seen · undecided.",
+  ],
+  "why-comparison": [
+    "Blind comparison",
+    "Compare “Why follow now?” notes",
+    "Choose the note that best explains what changed for the artist and why it matters. You can reveal the writing methods after choosing for all four.",
+  ],
   archive: [
     "Archive",
     "Artist archive",
@@ -48,6 +58,7 @@ const views = {
     "Gallery network",
     "Follow the galleries showing artists early, in London and beyond.",
   ],
+  presenter: ["Network profile", "Profile unavailable", ""],
   sources: [
     "Source monitor",
     "Source monitor",
@@ -262,6 +273,7 @@ function go(view) {
   closeDialog();
   document.body.classList.remove("navopen");
   if (current !== view) {
+    if (current === "why-comparison") Discoveries.leaveComparison();
     tableFilters = { search: "", city: "", type: "" };
     Discoveries.newDraw();
   }
@@ -342,7 +354,8 @@ function annualBudget() {
   );
 }
 function sidebar() {
-  return `<aside class="sidebar"><a class="brand" href="#overview" data-view="overview" aria-label="Fieldwork overview"><svg class="brand-art" viewBox="0 0 35 38" fill="none" aria-hidden="true"><path d="M1 28 12 4h7L8 28Z" fill="currentColor"/><path d="m10 32 11-24h6L16 32Z" fill="#cf7451"/><path d="m18 35 11-24h6L24 35Z" fill="#df9973"/></svg><b>Fieldwork</b></a><nav aria-label="Main navigation">${navItems.map(([group, rows]) => `<div class="navset"><p class="nav-head">${group}</p>${rows.map(([v, i]) => `<button class="navitem ${current === v ? "active" : ""}" data-view="${v}" ${current === v ? 'aria-current="page"' : ""}>${icon(i, 17)} ${views[v][0]}${v === "discoveries" && discovered().length ? `<span class="count">${discovered().length}</span>` : ""}</button>`).join("")}</div>`).join("")}</nav><div class="side-bottom"><button class="planbtn" data-act="budget"><small>${new Date().getFullYear()} buying plan</small><strong>${annualBudget() == null ? "Set annual budget" : new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(annualBudget())}</strong>${icon("settings", 16)}</button><div class="local"><i class="dot"></i> Demo workspace <a href="https://github.com/mtjdotcom/fieldwork-demo/issues/new" target="_blank" rel="noopener noreferrer">Feedback</a></div></div></aside><button class="scrim" data-act="menu" aria-label="Close navigation"></button>`;
+  const active = current === "presenter" ? "galleries" : current;
+  return `<aside class="sidebar"><a class="brand" href="#overview" data-view="overview" aria-label="Fieldwork overview"><svg class="brand-art" viewBox="0 0 35 38" fill="none" aria-hidden="true"><path d="M1 28 12 4h7L8 28Z" fill="currentColor"/><path d="m10 32 11-24h6L16 32Z" fill="#cf7451"/><path d="m18 35 11-24h6L24 35Z" fill="#df9973"/></svg><b>Fieldwork</b></a><nav aria-label="Main navigation">${navItems.map(([group, rows]) => `<div class="navset"><p class="nav-head">${group}</p>${rows.map(([v, i]) => `<button class="navitem ${active === v ? "active" : ""}" data-view="${v}" ${active === v ? 'aria-current="page"' : ""}>${icon(i, 17)} ${views[v][0]}${v === "discoveries" && discovered().length ? `<span class="count">${discovered().length}</span>` : ""}</button>`).join("")}</div>`).join("")}</nav><div class="side-bottom"><button class="planbtn" data-act="budget"><small>${new Date().getFullYear()} buying plan</small><strong>${annualBudget() == null ? "Set annual budget" : new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(annualBudget())}</strong>${icon("settings", 16)}</button><div class="local"><i class="dot"></i> Demo workspace <a href="https://github.com/mtjdotcom/fieldwork-demo/issues/new" target="_blank" rel="noopener noreferrer">Feedback</a></div></div></aside><button class="scrim" data-act="menu" aria-label="Close navigation"></button>`;
 }
 function topbar() {
   return `<header class="topbar"><div class="crumb"><button class="mobile-menu icon-btn" data-act="menu" aria-label="Open navigation">${icon("menu")}</button><span>Workspace</span><span class="slash">/</span><b>${views[current][0]}</b></div><button class="search-trigger" data-act="search" aria-label="Search workspace">${icon("search", 15)} <span>Search workspace</span><kbd>⌘ K</kbd></button></header>`;
@@ -355,6 +368,15 @@ const headActions = {
   sources: ["addSource", "Add source"],
 };
 function heading() {
+  if (current === "galleries" && Network.directoryTitle()) {
+    return `<header class="pagehead"><h1>${esc(Network.directoryTitle())}</h1></header>`;
+  }
+  if (current === "presenter") {
+    const profile = Network.selectedPresenter();
+    const description = profile ? [Network.kindLabels[profile.kind || "gallery"], profile.city, profile.country].filter(Boolean).join(" · ") : "";
+    return `<header class="pagehead"><div><h1>${esc(profile?.name || views.presenter[1])}</h1>
+      ${description ? `<p>${esc(description)}</p>` : ""}</div></header>`;
+  }
   const act = headActions[current],
     t = views[current];
   return `<header class="pagehead"><div>${current === "overview" ? `<div class="overline">${esc(new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }))}</div>` : ""}<h1>${t[1]}</h1><p>${t[2]}</p></div>${act ? `<button class="btn primary" data-act="${act[0]}">${icon("plus", 16)} ${act[1]}</button>` : ""}</header>`;
@@ -573,14 +595,17 @@ function render() {
     overview,
     artists: () => listContent("watching"),
     discoveries: () => Discoveries.page(),
+    "gallery-pilot": () => Discoveries.pilotPage(),
+    "why-comparison": () => Discoveries.comparisonPage(),
     archive: () => listContent("archived"),
     milestones,
     galleries: () => Network.galleries(),
+    presenter: () => Network.presenterPage(),
     sources: () => Network.sources(),
     desk: () => Worksheet.page(),
     framework: () => Profile.framework(),
   };
-  document.title = views[current][0] + " · Fieldwork";
+  document.title = (current === "presenter" ? Network.selectedPresenter()?.name || views.presenter[0] : views[current][0]) + " · Fieldwork";
   app.innerHTML = `${sidebar()}<div class="shell">${topbar()}<main class="page" id="main">${heading()}<div id="page-body">${page[current]()}</div></main></div>`;
   DiscoveryViews.observeCards();
   if (current === "overview") fitOverviewChart();
@@ -784,9 +809,10 @@ function chartSelect() {
   };
 }
 function searchWorkspace() {
+  const profiles = state.presenterProfiles || [];
   openDialog(
     "Search workspace",
-    `<input type="search" id="workspace-query" class="dialog-search" placeholder="Search artists, galleries, milestones and works…" aria-label="Search workspace" autofocus><div class="search-results" id="workspace-results"></div>`,
+    `<input type="search" id="workspace-query" class="dialog-search" placeholder="Search workspace…" aria-label="Search workspace" autofocus><div class="search-results" id="workspace-results"></div>`,
   );
   const input = dialog.querySelector("input"),
     out = dialog.querySelector("#workspace-results");
@@ -794,12 +820,13 @@ function searchWorkspace() {
     const q = input.value.trim().toLowerCase();
     if (!q) {
       out.innerHTML =
-        '<p class="small muted">Type an artist, gallery, work or exhibition title.</p>';
+        '<p class="small muted">Enter a name or exhibition title.</p>';
       return;
     }
     const entries = [
       ...state.artists.map((a) => [a.name, "artist", a.id, a.status]),
-      ...state.galleries.map((g) => [g.name, "gallery", g.id, g.city]),
+      ...state.galleries.filter(g => !profiles.some(p => p.galleryId === g.id)).map((g) => [g.name, "gallery", g.id, g.city]),
+      ...profiles.map(p => [p.name, "presenter", p.id, [Network.kindLabels[p.kind], p.city].filter(Boolean).join(" · ")]),
       ...state.events.map((e) => [
         e.title,
         "event",
@@ -824,8 +851,9 @@ function searchWorkspace() {
         )
         .slice(0, 32)
         .map(
-          ([n, t, id, d]) =>
-            `<button class="search-hit" data-${t}="${esc(id)}"><b>${esc(n)}</b><small>${esc(t)} · ${esc(d)}</small></button>`,
+          ([n, t, id, d]) => t === "presenter"
+            ? `<a class="search-hit" href="${esc(Network.presenterHref(id))}"><b>${esc(n)}</b><small>${esc(d)}</small></a>`
+            : `<button class="search-hit" data-${t}="${esc(id)}"><b>${esc(n)}</b><small>${esc(t)} · ${esc(d)}</small></button>`,
         )
         .join("") || '<p class="small muted">No matching records.</p>';
   };
